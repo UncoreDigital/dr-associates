@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogBreadCrum from "../components/blogs/inner/BlogBreadCrum.astro";
+import InnerBlog from "../components/blogs/inner/InnerBlog1.astro";
+import Blog1Seo from "../components/seo/Blog1Seo.astro";
+---
+
+<Layout>
+  <Fragment slot="styles">
+    <Blog1Seo />
+    <!-- <link rel="stylesheet" href="/assets/css/blog-bottom-tags.css" /> -->
+  </Fragment>
+  <BlogBreadCrum title="Unlock Funding for Impact: SSE is Now Live in India!" />
+  <InnerBlog />
+</Layout>

@@ -1,0 +1,34 @@
+---
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
+import AboutCompany from "../components/about/AboutCompany.astro";
+import OurVision from "../components/about/Our-vision.astro";
+import Services from "../components/about/Services.astro";
+import Overview from "../components/about/Overview.astro";
+import Counter from "../components/about/Counter.astro";
+import Experties from "../components/about/Experties.astro";
+import FAQ from "../components/about/FAQ.astro";
+import About2 from "../components/about/About2.astro";
+import Team from "../components/Team.astro";
+import AboutSeo from "../components/seo/AboutSeo.astro";
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <Fragment slot="styles">
+    <AboutSeo />
+    <link rel="stylesheet" href="/assets/css/form.css" />
+    <link rel="stylesheet" href="/assets/css/card.css" />
+  </Fragment>
+  <AboutCompany />
+  <OurVision />
+  <Counter />
+  <Experties />
+
+  <!-- <Overview /> -->
+  <!-- <FAQ /> -->
+  <About2 />
+  <Services />
+  <Team />
+</Layout>
