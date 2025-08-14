@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <style>
@@ -14,7 +15,7 @@
   }
 
   .popup {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     width: 600px;
     max-width: 90%;
     border-radius: 12px;
@@ -25,28 +26,28 @@
   }
 
   .popup h2 {
-    color: #71377E;
+    color: #71377e;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
   }
 
   .popup p {
-    color: #685D9F;
+    color: #685d9f;
     margin-bottom: 1.5rem;
   }
 
   .popup input[type="email"] {
     width: 100%;
     padding: 0.8rem;
-    border: 2px solid #D7C0D8;
+    border: 2px solid #d7c0d8;
     border-radius: 6px;
     margin-bottom: 1rem;
     font-size: 1rem;
   }
 
   .popup button.subscribe {
-    background-color: #72527F;
-    color: #FFFFFF;
+    background-color: #72527f;
+    color: #ffffff;
     padding: 0.8rem 1.2rem;
     border: none;
     border-radius: 6px;
@@ -55,14 +56,14 @@
   }
 
   .popup button.subscribe:hover {
-    background-color: #71377E;
+    background-color: #71377e;
   }
 
   .popup button.close {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #685D9F;
+    color: #685d9f;
     position: absolute;
     top: 0.8rem;
     right: 1rem;
@@ -76,14 +77,23 @@
     <h2>Subscribe to our Newsletter</h2>
     <p>Get the latest updates right in your inbox.</p>
     <form action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="bc8491c5-d1a9-4e3e-bc0d-b9e572b934d2">
-      <input type="email" name="email" placeholder="Enter your email" required />
+      <input
+        type="hidden"
+        name="access_key"
+        value="bc8491c5-d1a9-4e3e-bc0d-b9e572b934d2"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      />
       <button class="subscribe" type="submit">Subscribe</button>
     </form>
   </div>
 </div>
 
-<script is:inline>
+<!-- <script is:inline>
   window.addEventListener("load", () => {
     const popup = document.getElementById("newsletter-popup");
     const closeBtn = document.getElementById("popup-close");
@@ -99,10 +109,37 @@
       popup.style.display = "none";
     });
 
-    // form.addEventListener("submit", (e) => {
-    //   e.preventDefault();
-    //   alert(`Subscribed with: ${emailInput.value}`);
-    //   popup.style.display = "none";
-    // });
+    form.addEventListener("submit", (e) => {
+     e.preventDefault();
+       alert(`Subscribed with: ${emailInput.value}`);
+       popup.style.display = "none";
+     });
+  });
+</script> -->
+
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    const popup = document.getElementById("newsletter-popup");
+    const closeBtn = document.getElementById("popup-close");
+
+    // Always start hidden
+    popup.style.display = "none";
+
+    let popupShown = false;
+    const triggerDistance = window.innerHeight * 2.5; // 2.5x viewport height
+
+    function handleScroll() {
+      if (window.scrollY >= triggerDistance && !popupShown) {
+        popup.style.display = "flex";
+        popupShown = true;
+        window.removeEventListener("scroll", handleScroll);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    closeBtn.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
   });
 </script>
