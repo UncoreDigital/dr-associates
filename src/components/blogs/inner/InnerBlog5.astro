@@ -1,0 +1,271 @@
+---
+import Author from "./Author.astro";
+import "../../../../public/assets/css/blog-bottom-tag.css";
+---
+
+<style>
+  /* keep tags inside their column and prevent overlap */
+  .post-tags .list-wrap {
+    display: flex; /* lay out tags in a row */
+    flex-wrap: wrap; /* wrap onto new lines */
+    gap: 6px 10px; /* vertical    / horizontal spacing */
+    padding: 0;
+    margin: 0; /* remove default list margin if any */
+  }
+
+  .post-tags .list-wrap li {
+    list-style: none; /* in case bullets show up */
+  }
+
+  .post-tags .list-wrap a {
+    display: inline-block; /* keeps each tag compact */
+    padding: 4px 10px;
+    background: #f4f4f6; /* optional pill styling */
+    border-radius: 4px;
+    font-size: 14px;
+  }
+</style>
+<!-- blog-details-area -->
+<section class="blog-details-area pt-120 pb-120">
+  <div class="container">
+    <div class="blog-details-wrap">
+      <div class="row justify-content-center">
+        <div class="">
+          <div class="blog-details-thumb">
+            <img src="assets/img/blog/inner/blog-5-inner.png" alt="" />
+          </div>
+          <div class="blog-details-content">
+            <h2 class="title">
+              Impact Investing or Impact Illusion? Explaining the Legal Gaps in
+              SEBI’s Social Stock Exchange Rules
+            </h2>
+            <div class="blog-meta-three">
+              <ul class="list-wrap">
+                <li><i class="far fa-calendar"></i>24 June, 2025</li>
+                <li>
+                  <img src="assets/img/blog/Blog Writer.png" alt="" /> by <a
+                    href="#">Rohit Pandya</a
+                  >
+                </li>
+                <li>
+                  <i class="fas fa-tags"></i>
+                  <a href="#">Finance,</a><a href="#">Business</a>
+                </li>
+                <!-- <li><i class="flaticon-speech-bubble"></i><a href="#">05 Comments</a></li> -->
+              </ul>
+            </div>
+            <p>
+              SEBI, India’s financial market regulator, created new rules for a
+              special Social Stock Exchange (SSE) where social organizations can
+              raise funds from the public. They introduced a new financial tool
+              called the Zero Coupon Zero Principal (ZCZP) instrument. This tool
+              lets people and companies “donate” money to social organizations
+              listed on the exchange, without expecting any profit or money
+              back.
+            </p>
+
+            <p>
+              However, while this shows progress in social investing, there are
+              important legal and practical problems with these new rules that
+              need fixing. Let’s break down these issues in simple language.
+            </p>
+
+            <ol>
+              <li><b>The Problem with ZCZP Instruments</b></li>
+              <ul>
+                <li>
+                  <b>How ZCZP Works:</b> People and companies give money to social
+                  organizations. This money is not an “investment” like buying a
+                  stock. Instead, it's a donation; donors don’t get any interest
+                  (profit) or their money back.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>Why is this a Problem?</b> Most investors, especially large
+                  institutions like banks or mutual funds, put money in the market
+                  hoping to earn returns. Since ZCZPs offer no financial gain, very
+                  few traditional investors will be interested.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>Limited Appeal:</b> Because ZCZPs are like donations, they can’t
+                  be bought and sold easily in the market. There’s little to no “liquidity”
+                  (you can’t sell them if you need your money back), which also discourages
+                  buyers.
+                </li>
+              </ul>
+              <p>
+                <b>Result: </b> This tool is great for charities but doesn't attract
+                normal investors; hence, the market for these instruments remains
+                small.
+              </p>
+
+              <li><b>Missing Investor Protection</b></li>
+              <ul>
+                <li>
+                  <b>In Regular Markets:</b> SEBI requires protections for buyers—like
+                  the ability to sell their investment and safeguards against fraud.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>With ZCZP Instruments:</b> Since donors don’t get returns, the
+                  usual protections and checks for investors aren’t there. Some legal
+                  rules say that every tradable security must offer some value or
+                  benefit to its holder, which ZCZPs don't provide.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>Legal Tension</b> Because these instruments don’t provide financial
+                  benefits, they may not fully comply with India's existing rules
+                  for marketable securities.
+                </li>
+              </ul>
+              <br />
+              <li>
+                <b>Risk of Fake Impact (Social-Washing and Greenwashing)</b>
+              </li>
+              <ul>
+                <li>
+                  <b>What is Social-Washing?</b> It's when an organization exaggerates
+                  or lies about the positive impact they have just to attract donations.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>Current Rules:</b> SEBI says organizations should report their
+                  impact, but doesn’t always require third-party checking or strong
+                  punishments for false claims.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>Why is that an Issue?</b> Without strict checks, some organizations
+                  can easily make fake claims without being caught or punished.
+                </li>
+              </ul>
+              <br />
+              <li><b>Recommended Solutions</b></li>
+              <p>
+                The document suggests several ways to protect donors and make
+                the SSE framework stronger:
+              </p>
+              <ul>
+                <li>
+                  <b>Independent Audits:</b> Every social organization should have
+                  their impact claims checked by independent, outside experts, not
+                  just review their own work.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>Penalties for Cheating:</b> If an organization lies about its
+                  impact, it should be fined or punished, much like the rules for
+                  companies listed on the normal stock market.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>NFRA Oversight:</b> The National Financial Reporting Authority
+                  (NFRA) should monitor the financial records and impact reports
+                  of organizations on the SSE to make sure the numbers are real and
+                  trustworthy.
+                </li>
+              </ul>
+
+              <ul>
+                <li>
+                  <b>Learn from Europe:</b> Europe has strong rules where organizations
+                  face large penalties for making false social or sustainability
+                  claims. India should consider adopting similar strict rules, with
+                  both careful verification and meaningful fines.
+                </li>
+              </ul>
+              <br />
+              <li>
+                <b>Why These Changes Are Important<b></b></b>
+                <ul>
+                  <li>
+                    <b>Building Trust:</b> Donors and the public will only trust
+                    the Social Stock Exchange if they believe that their money is
+                    going where it’s promised and that the laws really protect against
+                    fraud and scams.
+                  </li>
+                </ul>
+
+                <ul>
+                  <li>
+                    <b>Market Credibility:</b> With clear rules, regular checks,
+                    and penalties for misuse, the SSE framework will attract more
+                    genuine organizations, more donations and possibly even serious
+                    investors in the long run.
+                  </li>
+                </ul>
+              </li>
+
+              <p>
+                <b>In summary:</b><br />
+                SEBI’s Social Stock Exchange is a great idea for helping social organizations
+                raise money, but there are still big problems - like weak legal protections
+                and a lack of strict checking of impact claims. Stronger rules, audits,
+                and penalties are necessary to prevent fake claims and make the system
+                truly effective.
+              </p>
+
+              <div class="bd-content-bottom">
+                <div class="row align-items-center">
+                  <div class="col-md-7">
+                    <div class="post-tags">
+                      <h5 class="title">Tags:</h5>
+                      <ul class="list-wrap">
+                        <li><a href="#">ImpactInvesting</a></li>
+                        <li><a href="#">SSEIndia</a></li>
+                        <li><a href="#">InvestWithPurpose</a></li>
+                        <li><a href="#">SocialFinance</a></li>
+                        <li><a href="#">ESGIndia</a></li>
+                        <li><a href="#">SocialStockExchange</a></li>
+                        <li><a href="#">DRAssociates</a></li>
+                        <li><a href="#">NGOImpact</a></li>
+                        <li><a href="#">SEBI</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="blog-post-share">
+                      <h5 class="title">Share:</h5>
+                      <ul class="list-wrap">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ol>
+            <Author />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- blog-details-area-end -->
+</section>
