@@ -27,6 +27,11 @@ const nav: NavItem[] = [
     match: (p) => p === "/blogs" || /^\/blog-\d+$/i.test(p),
   },
   {
+     href: "/survey",
+    label: "Survey",
+    match: (p) => p.startsWith("/survey"),
+  },
+  {
     href: "/contact-us",
     label: "Contact Us",
     match: (p) => p.startsWith("/contact-us"),
