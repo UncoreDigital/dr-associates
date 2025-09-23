@@ -1,16 +1,6 @@
 // SurveyForm.jsx
 import React, { useState } from "react";
 
-const stepsData = [
-  "A. About Your Giving",
-  "B. How You Decide Where to Give",
-  "C. Your Key Priorities",
-  "D. Readiness for ZCZP & SSE",
-  "E. Fit with Your Strategy",
-  "F. Operations & Barriers",
-  "G. Contact",
-];
-
 const SurveyForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
@@ -18,7 +8,6 @@ const SurveyForm = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
     if (type === "checkbox") {
       const existing = formData[name] || [];
       if (checked) setFormData({ ...formData, [name]: [...existing, value] });
@@ -32,12 +21,13 @@ const SurveyForm = () => {
     }
   };
 
-  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, stepsData.length - 1));
-  const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
+  const nextStep = () =>
+    setCurrentStep((prev) => Math.min(prev + 1, 6));
+  const prevStep = () =>
+    setCurrentStep((prev) => Math.max(prev - 1, 0));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const res = await fetch("https://www.drassociates.org.in/survey", {
         method: "POST",
@@ -64,7 +54,7 @@ const SurveyForm = () => {
     <div style={{ maxWidth: "800px", margin: "50px auto", padding: "20px", border: "1px solid #ccc", borderRadius: "12px" }}>
       <h1 style={{ textAlign: "center" }}>Philanthropic Donor Survey</h1>
       <div style={{ margin: "20px 0", height: "6px", background: "#ddd", borderRadius: "6px", overflow: "hidden" }}>
-        <div style={{ height: "100%", width: `${((currentStep + 1) / stepsData.length) * 100}%`, background: "#70507d", transition: "width 0.3s" }}></div>
+        <div style={{ height: "100%", width: `${((currentStep + 1) / 7) * 100}%`, background: "#70507d", transition: "width 0.3s" }}></div>
       </div>
 
       <form onSubmit={handleSubmit}>
@@ -138,8 +128,64 @@ const SurveyForm = () => {
           </div>
         )}
 
-        {/* Step G (Contact) */}
-        {currentStep === stepsData.length - 1 && (
+        {/* Step D */}
+        {currentStep === 3 && (
+          <div>
+            <h2>D. Readiness for ZCZP & SSE</h2>
+            <label>ZCZP familiarity:</label>
+            <select name="zczp" onChange={handleChange} required>
+              <option value="">--Select--</option>
+              <option>Not familiar</option>
+              <option>Somewhat</option>
+              <option>Very familiar</option>
+            </select>
+
+            <label>SSE familiarity:</label>
+            <select name="sse" onChange={handleChange} required>
+              <option value="">--Select--</option>
+              <option>Not familiar</option>
+              <option>Somewhat</option>
+              <option>Very familiar</option>
+            </select>
+
+            <div style={{ marginTop: "20px" }}>
+              <button type="button" onClick={prevStep} style={{ marginRight: "10px", padding: "8px 16px" }}>Back</button>
+              <button type="button" onClick={nextStep} style={{ padding: "8px 16px", background: "#70507d", color: "#fff", border: "none", borderRadius: "6px" }}>Next</button>
+            </div>
+          </div>
+        )}
+
+        {/* Step E */}
+        {currentStep === 4 && (
+          <div>
+            <h2>E. Fit with Your Strategy</h2>
+            <label>Comfort with social-return only:</label>
+            <input type="range" name="fit4" min="1" max="5" onChange={handleChange} required />
+
+            <div style={{ marginTop: "20px" }}>
+              <button type="button" onClick={prevStep} style={{ marginRight: "10px", padding: "8px 16px" }}>Back</button>
+              <button type="button" onClick={nextStep} style={{ padding: "8px 16px", background: "#70507d", color: "#fff", border: "none", borderRadius: "6px" }}>Next</button>
+            </div>
+          </div>
+        )}
+
+        {/* Step F */}
+        {currentStep === 5 && (
+          <div>
+            <h2>F. Operations & Barriers</h2>
+            <label>Execution readiness:</label>
+            <input type="radio" name="dematAcc" value="Yes" onChange={handleChange} required /> Yes
+            <input type="radio" name="dematAcc" value="No" onChange={handleChange} /> No
+
+            <div style={{ marginTop: "20px" }}>
+              <button type="button" onClick={prevStep} style={{ marginRight: "10px", padding: "8px 16px" }}>Back</button>
+              <button type="button" onClick={nextStep} style={{ padding: "8px 16px", background: "#70507d", color: "#fff", border: "none", borderRadius: "6px" }}>Next</button>
+            </div>
+          </div>
+        )}
+
+        {/* Step G */}
+        {currentStep === 6 && (
           <div>
             <h2>G. Contact</h2>
             <label>Name & Organization</label>
