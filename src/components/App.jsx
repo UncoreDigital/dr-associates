@@ -1,4 +1,4 @@
-import SurveyForm from "./components/servey/SurveyForm";
+import SurveyForm from "./components/survey/SurveyForm";
 
 function App() {
   return <SurveyForm />;
