@@ -1,401 +1,163 @@
----
----
+// SurveyForm.jsx
+import React, { useState } from "react";
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Philanthropic Donor Survey</title>
-    <style>
-     .survey-cls { font-family: Arial, sans-serif; background: #ffffff;
-             
-             min-height: 100vh; margin: 0; }
-      .survey-main-cls { background: #fff; padding: 2rem; border-radius: 12px;
-             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-             width: 100%; max-width: 1050px;
-             position: relative;
-             margin: 150px auto 220px;
-    /* display: block;
-    position: relative;
-    margin: 0 auto; */
-    /* top: 150px; */
-    /* margin-bottom: 220px; */
-  }
-      h2 { font-size: 1.25rem; margin-bottom: 1rem; color: #222; }
-      strong { display: block; margin: 1rem 0 0.5rem; color: #000; }
-      label { display: block; margin: 0.5rem 0; color: #444; }
-      input, select, textarea {
-        margin-top: 0.25rem; padding: 0.5rem;
-        border: 1px solid #ccc; border-radius: 6px; width: 100%;
-      }
-      input[type="checkbox"], input[type="radio"] { width: auto; margin-right: 0.5rem; }
-      .buttons { display: flex; justify-content: space-between; margin-top: 1.5rem; }
-      button { padding: 0.6rem 1.2rem; border: none; border-radius: 6px; cursor: pointer; font-size: 0.95rem; }
-      button[data-prev] { background: #e0e0e0; }
-      button[data-next] { background: #70507d; color: #fff; }
-      button[type="submit"] { background: #28a745; color: #fff; }
-      .progress { width: 100%; background: #ddd; height: 6px; border-radius: 6px;
-                  margin-bottom: 1.5rem; overflow: hidden; }
-      .progress div { height: 100%; width: 0; background: #70507d; transition: width 0.3s ease; }
-      .hidden { display: none; }
-      .thankyou { text-align: center; padding: 2rem; }
-      .thankyou h2 { color: #28a745; }
-      
-@media only screen and (max-width: 600px) {
-.survey-main-cls{
-   top: 74px ;
-    margin-bottom: 20px;
-    }
-}
-    </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        let currentStep = 0;
-        const steps = document.querySelectorAll(".step");
-        const progress = document.getElementById("progress");
-        const form = document.getElementById("surveyForm");
-        const thankyou = document.getElementById("thankyouMessage");
+const stepsData = [
+  "A. About Your Giving",
+  "B. How You Decide Where to Give",
+  "C. Your Key Priorities",
+  "D. Readiness for ZCZP & SSE",
+  "E. Fit with Your Strategy",
+  "F. Operations & Barriers",
+  "G. Contact",
+];
 
-        function showStep(index) {
-          steps.forEach((s, i) => s.classList.toggle("hidden", i !== index));
-          progress.style.width = ((index + 1) / steps.length) * 100 + "%";
-        }
+const SurveyForm = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [formData, setFormData] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
-        function validateStep(step) {
-          const inputs = steps[step].querySelectorAll("[required]");
-          let valid = true;
-          inputs.forEach(input => {
-            if ((input.type === "radio" || input.type === "checkbox")) {
-              const group = steps[step].querySelectorAll(`[name='${input.name}']`);
-              if (![...group].some(i => i.checked)) valid = false;
-            } else if (!input.value.trim()) {
-              valid = false;
-            }
-          });
-          return valid;
-        }
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
 
-        document.querySelectorAll("[data-next]").forEach(btn =>
-          btn.addEventListener("click", () => {
-            if (!validateStep(currentStep)) {
-              alert("⚠️ Please fill all required fields before continuing.");
-              return;
-            }
-            if (currentStep < steps.length - 1) {
-              currentStep++;
-              showStep(currentStep);
-            }
-          })
-        );
-
-        document.querySelectorAll("[data-prev]").forEach(btn =>
-          btn.addEventListener("click", () => {
-            if (currentStep > 0) {
-              currentStep--;
-              showStep(currentStep);
-            }
-          })
-        );
-
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          if (!validateStep(currentStep)) {
-            alert("⚠️ Please fill all required fields.");
-            return;
-          }
-          const formData = new FormData(form);
-          const object = {};
-          formData.forEach((value, key) => {
-            if (!object[key]) object[key] = value;
-            else {
-              if (!Array.isArray(object[key])) object[key] = [object[key]];
-              object[key].push(value);
-            }
-          });
-          const json = JSON.stringify(object);
-
-          const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: json,
-          });
-          const result = await res.json();
-          if (result.success) {
-            form.classList.add("hidden");
-            thankyou.classList.remove("hidden");
-          } else {
-            alert("Something went wrong. Please try again.");
-          }
+    if (type === "checkbox") {
+      const existing = formData[name] || [];
+      if (checked) setFormData({ ...formData, [name]: [...existing, value] });
+      else
+        setFormData({
+          ...formData,
+          [name]: existing.filter((v) => v !== value),
         });
-
-        showStep(currentStep);
-      });
-
-  function showStep(index) {
-  steps.forEach((s, i) => {
-    const inputs = s.querySelectorAll("[required]");
-    if (i === index) {
-      s.classList.remove("hidden");
-      inputs.forEach(input => input.setAttribute("required", "true"));
     } else {
-      s.classList.add("hidden");
-      inputs.forEach(input => input.removeAttribute("required"));
+      setFormData({ ...formData, [name]: value });
     }
-  });
-  progress.style.width = ((index + 1) / steps.length) * 100 + "%";
-}
+  };
 
-    </script>
+  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, stepsData.length - 1));
+  const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
 
-  </head>
-  <body class="survey-cls">
-    <main class="survey-main-cls">
-    <h1 style="text-align:center;    margin-bottom: 30px;">Survey Form</h1>
-      <div class="progress"><div id="progress"></div></div>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-      <form id="surveyForm" novalidate>
-        <input type="hidden" name="access_key" value="8ef90f2a-e010-46f6-af19-f853e509b322" />
-        <input type="hidden" name="subject" value="New Survey Response from Website" />
+    try {
+      const res = await fetch("http://localhost:5000/send-survey", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const result = await res.json();
+      if (result.success) setSubmitted(true);
+      else alert("Error: " + result.error);
+    } catch (err) {
+      alert("Error: " + err.message);
+    }
+  };
 
-        <!-- === STEP A === -->
-        <div class="step">
-          <h2>A. About Your Giving</h2>
-          <strong>Years of active philanthropy</strong>
-          <label><input type="radio" name="years" value="<5" required /> &lt;5</label>
-          <label><input type="radio" name="years" value="5-15" /> 5–15</label>
-          <label><input type="radio" name="years" value=">15" /> >15</label>
-
-          <strong>Primary giving vehicle</strong>
-          <label><input type="radio" name="vehicle" value="Individual" required /> Individual</label>
-          <label><input type="radio" name="vehicle" value="Family Foundation" /> Family foundation</label>
-          <label><input type="radio" name="vehicle" value="Corporate Foundation" /> Corporate foundation</label>
-          <label><input type="radio" name="vehicle" value="DAF" /> Donor-advised fund</label>
-          <label><input type="radio" name="vehicle" value="Other" /> Other</label>
-
-          <strong>Annual giving range</strong>
-          <label><input type="radio" name="range" value="1-10L" required /> ₹1–10L</label>
-          <label><input type="radio" name="range" value="10-50L" /> ₹10–50L</label>
-          <label><input type="radio" name="range" value="50L-2Cr" /> ₹50L–2Cr</label>
-          <label><input type="radio" name="range" value="2-10Cr" /> ₹2–10Cr</label>
-          <label><input type="radio" name="range" value=">10Cr" /> >₹10Cr</label>
-
-          <div class="buttons">
-            <span></span>
-            <button type="button" data-next>Next</button>
-          </div>
-        </div>
-
-        <!-- === STEP B === -->
-        <div class="step hidden">
-          <h2>B. How You Decide Where to Give</h2>
-          <strong>What most influences your decisions?</strong>
-          <label><input type="checkbox" name="influence[]" value="Values" required /> Personal values</label>
-          <label><input type="checkbox" name="influence[]" value="Impact" /> Evidence of impact</label>
-          <label><input type="checkbox" name="influence[]" value="Peer" /> Peer recommendations</label>
-          <label><input type="checkbox" name="influence[]" value="Leadership" /> Leadership/governance</label>
-          <label><input type="checkbox" name="influence[]" value="Tax" /> Tax benefits</label>
-          <label><input type="checkbox" name="influence[]" value="Family" /> Family tradition</label>
-
-          <strong>Your diligence approach</strong>
-          <label><input type="checkbox" name="diligence[]" value="Site" /> Site visits</label>
-          <label><input type="checkbox" name="diligence[]" value="Third-party" /> Third-party assessments</label>
-          <label><input type="checkbox" name="diligence[]" value="Peer" /> Peer references</label>
-          <label><input type="checkbox" name="diligence[]" value="Audit" /> Financial audits</label>
-          <label><input type="checkbox" name="diligence[]" value="Reports" /> Impact reports</label>
-          <label><input type="checkbox" name="diligence[]" value="Advisory" /> Advisory support</label>
-
-          <strong>When assessing impact, you prioritize…</strong>
-          <label><input type="radio" name="impact" value="Outcomes" required /> Outcomes</label>
-          <label><input type="radio" name="impact" value="Inputs" /> Inputs</label>
-
-          <strong>Funding style</strong>
-          <label><input type="radio" name="funding" value="Unrestricted" required /> Unrestricted</label>
-          <label><input type="radio" name="funding" value="Project" /> Project-specific</label>
-          <label><input type="radio" name="funding" value="Mix" /> Mix of both</label>
-
-          <div class="buttons">
-            <button type="button" data-prev>Back</button>
-            <button type="button" data-next>Next</button>
-          </div>
-        </div>
-
-        <!-- === STEP C === -->
-        <div class="step hidden">
-          <h2>C. Your Key Priorities</h2>
-          <strong>Focus sectors</strong>
-          <label><input type="checkbox" name="sectors[]" value="Education" required /> Education</label>
-          <label><input type="checkbox" name="sectors[]" value="Healthcare" /> Healthcare</label>
-          <label><input type="checkbox" name="sectors[]" value="Gender" /> Gender Equity & Inclusion</label>
-          <label><input type="checkbox" name="sectors[]" value="Climate" /> Climate Action</label>
-          <label><input type="checkbox" name="sectors[]" value="Rural" /> Rural Livelihoods</label>
-          <label><input type="checkbox" name="sectors[]" value="Mental" /> Mental Health</label>
-          <label><input type="checkbox" name="sectors[]" value="Arts" /> Arts & Culture</label>
-          <label><input type="checkbox" name="sectors[]" value="Ecosystem" /> Ecosystem Strengthening</label>
-          <label><input type="checkbox" name="sectors[]" value="Other" /> Other</label>
-
-          <strong>Geography emphasis</strong>
-          <label><input type="radio" name="geo" value="Urban" required /> Mostly urban</label>
-          <label><input type="radio" name="geo" value="Balanced" /> Balanced</label>
-          <label><input type="radio" name="geo" value="Rural" /> Mostly rural</label>
-
-          <strong>Capacity vs programs (1–5)</strong>
-          <label>Institutional capacity <input type="number" name="capacity" min="1" max="5" required /></label>
-          <label>Program delivery <input type="number" name="programs" min="1" max="5" required /></label>
-
-          <strong>Partnership orientation</strong>
-          <label><input type="radio" name="partnership" value="PPP" required /> PPP/government</label>
-          <label><input type="radio" name="partnership" value="Nonprofit" /> Only nonprofit</label>
-
-          <div class="buttons">
-            <button type="button" data-prev>Back</button>
-            <button type="button" data-next>Next</button>
-          </div>
-        </div>
-
-        <!-- === STEP D === -->
-        <div class="step hidden">
-          <h2>D. Readiness for ZCZP & SSE</h2>
-          <strong>Awareness check</strong>
-          <label>ZCZP familiarity
-            <select name="zczp" required>
-              <option value="">--Select--</option>
-              <option>Not familiar</option>
-              <option>Somewhat</option>
-              <option>Very familiar</option>
-            </select>
-          </label>
-          <label>SSE familiarity
-            <select name="sse" required>
-              <option value="">--Select--</option>
-              <option>Not familiar</option>
-              <option>Somewhat</option>
-              <option>Very familiar</option>
-            </select>
-          </label>
-
-          <strong>Understanding</strong>
-          <label><input type="checkbox" name="understanding[]" value="No return" /> ZCZP has no financial return</label>
-          <label><input type="checkbox" name="understanding[]" value="Demat" /> ZCZP is in demat form</label>
-
-          <strong>Potential allocation</strong>
-          <label><input type="radio" name="allocation" value="0%" required /> 0%</label>
-          <label><input type="radio" name="allocation" value="1-10%" /> 1–10%</label>
-          <label><input type="radio" name="allocation" value="11-25%" /> 11–25%</label>
-          <label><input type="radio" name="allocation" value="26-50%" /> 26–50%</label>
-          <label><input type="radio" name="allocation" value=">50%" /> >50%</label>
-
-          <strong>Commitment size</strong>
-          <label><input type="radio" name="commitment" value="10k" required /> ~₹10,000</label>
-          <label><input type="radio" name="commitment" value="10k-1L" /> ₹10,001–₹1 lakh</label>
-          <label><input type="radio" name="commitment" value="1-10L" /> ₹1–10 lakh</label>
-          <label><input type="radio" name="commitment" value=">10L" /> >₹10 lakh</label>
-
-          <strong>What would you need?</strong>
-          <label><input type="checkbox" name="needs[]" value="Reporting" /> Impact reporting</label>
-          <label><input type="checkbox" name="needs[]" value="Assessment" /> Third-party assessment</label>
-          <label><input type="checkbox" name="needs[]" value="Regulatory" /> Regulatory/SEBI comfort</label>
-          <label><input type="checkbox" name="needs[]" value="Cases" /> Case studies</label>
-          <label><input type="checkbox" name="needs[]" value="Advisor" /> Advisor/peer session</label>
-          <label><input type="checkbox" name="needs[]" value="Tax" /> Tax clarity</label>
-
-          <div class="buttons">
-            <button type="button" data-prev>Back</button>
-            <button type="button" data-next>Next</button>
-          </div>
-        </div>
-
-        <!-- === STEP E === -->
-        <div class="step hidden">
-          <h2>E. Fit with Your Strategy</h2>
-          <strong>ZCZP could complement my strategy</strong>
-          <input type="range" name="fit1" min="1" max="5" required />
-
-          <strong>Exchange-mandated disclosures increase confidence</strong>
-          <input type="range" name="fit2" min="1" max="5" required />
-
-          <strong>SEBI oversight improves trust</strong>
-          <input type="range" name="fit3" min="1" max="5" required />
-
-          <strong>Comfort with social-return only</strong>
-          <input type="range" name="fit4" min="1" max="5" required />
-
-          <div class="buttons">
-            <button type="button" data-prev>Back</button>
-            <button type="button" data-next>Next</button>
-          </div>
-        </div>
-
-        <!-- === STEP F === -->
-        <div class="step hidden">
-          <h2>F. Operations & Barriers</h2>
-          <strong>Execution readiness</strong>
-          <label><input type="radio" name="dematAcc" value="Yes" required /> Yes</label>
-          <label><input type="radio" name="dematAcc" value="No" /> No</label>
-
-          <strong>Preferred route</strong>
-          <label><input type="radio" name="route" value="Direct" required /> Direct ZCZP</label>
-          <label><input type="radio" name="route" value="Fund" /> Social Impact Fund</label>
-
-          <strong>Biggest concerns</strong>
-          <label><input type="checkbox" name="concerns[]" value="Regulatory" /> Regulatory clarity</label>
-          <label><input type="checkbox" name="concerns[]" value="Impact" /> Impact measurement</label>
-          <label><input type="checkbox" name="concerns[]" value="NPO" /> Credible NPOs</label>
-          <label><input type="checkbox" name="concerns[]" value="Ticket" /> Minimum ticket size</label>
-          <label><input type="checkbox" name="concerns[]" value="Transfer" /> Non-transferability</label>
-          <label><input type="checkbox" name="concerns[]" value="Track" /> Limited track record</label>
-
-          <strong>Outlook (3–5 years)</strong>
-          <label><input type="radio" name="outlook" value="Increase" required /> Increase</label>
-          <label><input type="radio" name="outlook" value="Maintain" /> Maintain</label>
-          <label><input type="radio" name="outlook" value="Reduce" /> Reduce</label>
-
-          <strong>Likelihood to recommend (1–5)</strong>
-          <input type="number" name="recommend" min="1" max="5" required />
-
-          <strong>Improvements that would increase participation</strong>
-          <textarea name="improvements" rows="3"></textarea>
-
-          <div class="buttons">
-            <button type="button" data-prev>Back</button>
-            <button type="button" data-next>Next</button>
-          </div>
-        </div>
-
-        <!-- === STEP G === -->
-        <div class="step hidden">
-          <h2>G. Contact</h2>
-          <strong>Name & Organization</strong>
-          <input type="text" name="nameOrg" required />
-
-          <strong>Email</strong>
-          <input type="email" name="email" required />
-
-          <strong>Phone</strong>
-          <input type="tel" name="phone" />
-
-          <strong>Would you like a 15-min briefing?</strong>
-          <label><input type="radio" name="briefing" value="Yes" required /> Yes</label>
-          <label><input type="radio" name="briefing" value="No" /> No</label>
-
-          <strong>Topics you want covered</strong>
-          <label><input type="checkbox" name="topics[]" value="Basics" /> Basics</label>
-          <label><input type="checkbox" name="topics[]" value="Tax" /> Tax</label>
-          <label><input type="checkbox" name="topics[]" value="Impact" /> Impact reporting</label>
-          <label><input type="checkbox" name="topics[]" value="Cases" /> Case studies</label>
-          <label><input type="checkbox" name="topics[]" value="Demo" /> Onboarding/demo</label>
-
-          <div class="buttons">
-            <button type="button" data-prev>Back</button>
-            <button type="submit">Submit</button>
-          </div>
-        </div>
-      </form>
-
-      <!-- Thank You -->
-      <div id="thankyouMessage" class="thankyou hidden">
+  if (submitted)
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
         <h2>🎉 Thank you for completing the survey!</h2>
         <p>Your responses have been recorded successfully.</p>
-        <a href="/" class="back-toome-cls">Back to Home</a>
       </div>
-    </main>
-  </body>
-</html>
+    );
+
+  return (
+    <div style={{ maxWidth: "800px", margin: "50px auto", padding: "20px", border: "1px solid #ccc", borderRadius: "12px" }}>
+      <h1 style={{ textAlign: "center" }}>Philanthropic Donor Survey</h1>
+      <div style={{ margin: "20px 0", height: "6px", background: "#ddd", borderRadius: "6px", overflow: "hidden" }}>
+        <div style={{ height: "100%", width: `${((currentStep + 1) / stepsData.length) * 100}%`, background: "#70507d", transition: "width 0.3s" }}></div>
+      </div>
+
+      <form onSubmit={handleSubmit}>
+        {/* Step A */}
+        {currentStep === 0 && (
+          <div>
+            <h2>A. About Your Giving</h2>
+            <label>Years of active philanthropy:</label>
+            <div>
+              <label><input type="radio" name="years" value="<5" onChange={handleChange} required /> &lt;5</label>
+              <label><input type="radio" name="years" value="5-15" onChange={handleChange} /> 5–15</label>
+              <label><input type="radio" name="years" value=">15" onChange={handleChange} /> >15</label>
+            </div>
+
+            <label>Primary giving vehicle:</label>
+            <div>
+              <label><input type="radio" name="vehicle" value="Individual" onChange={handleChange} required /> Individual</label>
+              <label><input type="radio" name="vehicle" value="Family Foundation" onChange={handleChange} /> Family Foundation</label>
+              <label><input type="radio" name="vehicle" value="Corporate Foundation" onChange={handleChange} /> Corporate Foundation</label>
+              <label><input type="radio" name="vehicle" value="DAF" onChange={handleChange} /> Donor-advised fund</label>
+              <label><input type="radio" name="vehicle" value="Other" onChange={handleChange} /> Other</label>
+            </div>
+
+            <label>Annual giving range:</label>
+            <div>
+              <label><input type="radio" name="range" value="1-10L" onChange={handleChange} required /> ₹1–10L</label>
+              <label><input type="radio" name="range" value="10-50L" onChange={handleChange} /> ₹10–50L</label>
+              <label><input type="radio" name="range" value="50L-2Cr" onChange={handleChange} /> ₹50L–2Cr</label>
+              <label><input type="radio" name="range" value="2-10Cr" onChange={handleChange} /> ₹2–10Cr</label>
+              <label><input type="radio" name="range" value=">10Cr" onChange={handleChange} /> >₹10Cr</label>
+            </div>
+
+            <div style={{ marginTop: "20px" }}>
+              <button type="button" onClick={nextStep} style={{ padding: "8px 16px", background: "#70507d", color: "#fff", border: "none", borderRadius: "6px" }}>Next</button>
+            </div>
+          </div>
+        )}
+
+        {/* Step B */}
+        {currentStep === 1 && (
+          <div>
+            <h2>B. How You Decide Where to Give</h2>
+            <label>What most influences your decisions?</label>
+            <div>
+              <label><input type="checkbox" name="influence" value="Values" onChange={handleChange} /> Personal values</label>
+              <label><input type="checkbox" name="influence" value="Impact" onChange={handleChange} /> Evidence of impact</label>
+              <label><input type="checkbox" name="influence" value="Peer" onChange={handleChange} /> Peer recommendations</label>
+            </div>
+
+            <div style={{ marginTop: "20px" }}>
+              <button type="button" onClick={prevStep} style={{ marginRight: "10px", padding: "8px 16px" }}>Back</button>
+              <button type="button" onClick={nextStep} style={{ padding: "8px 16px", background: "#70507d", color: "#fff", border: "none", borderRadius: "6px" }}>Next</button>
+            </div>
+          </div>
+        )}
+
+        {/* Step C */}
+        {currentStep === 2 && (
+          <div>
+            <h2>C. Your Key Priorities</h2>
+            <label>Focus sectors:</label>
+            <div>
+              <label><input type="checkbox" name="sectors" value="Education" onChange={handleChange} /> Education</label>
+              <label><input type="checkbox" name="sectors" value="Healthcare" onChange={handleChange} /> Healthcare</label>
+            </div>
+
+            <div style={{ marginTop: "20px" }}>
+              <button type="button" onClick={prevStep} style={{ marginRight: "10px", padding: "8px 16px" }}>Back</button>
+              <button type="button" onClick={nextStep} style={{ padding: "8px 16px", background: "#70507d", color: "#fff", border: "none", borderRadius: "6px" }}>Next</button>
+            </div>
+          </div>
+        )}
+
+        {/* Step G (Contact) */}
+        {currentStep === stepsData.length - 1 && (
+          <div>
+            <h2>G. Contact</h2>
+            <label>Name & Organization</label>
+            <input type="text" name="nameOrg" onChange={handleChange} required />
+            <label>Email</label>
+            <input type="email" name="email" onChange={handleChange} required />
+            <label>Phone</label>
+            <input type="tel" name="phone" onChange={handleChange} />
+
+            <div style={{ marginTop: "20px" }}>
+              <button type="button" onClick={prevStep} style={{ marginRight: "10px", padding: "8px 16px" }}>Back</button>
+              <button type="submit" style={{ padding: "8px 16px", background: "#28a745", color: "#fff", border: "none", borderRadius: "6px" }}>Submit</button>
+            </div>
+          </div>
+        )}
+      </form>
+    </div>
+  );
+};
+
+export default SurveyForm;
