@@ -101,6 +101,23 @@ footer {
 </div>
 </main>
 </div>
+<script>
+jQuery(function($){
+  const NEW_TEXT = 'ZCZP Investor Survey';
+  const selectors = '.survey-main-cls h1';
+
+  function tryReplace() {
+    const $el = $(selectors).first();
+    if ($el.length) { $el.text(NEW_TEXT); return true; }
+    return false;
+  }
+
+  if (!tryReplace()) {
+    const observer = new MutationObserver(() => { if (tryReplace()) observer.disconnect(); });
+    observer.observe(document.documentElement, { childList:true, subtree:true });
+  }
+});
+</script>
 
 
 
