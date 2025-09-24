@@ -74,7 +74,20 @@ footer {
     }
 }
     </style>
+<script>
+  if (window.self !== window.top) {
+    // Page is inside an iframe
+    document.addEventListener("DOMContentLoaded", () => {
+      const header = document.querySelector('header');
+      const footer = document.querySelector('footer');
+      const pageTitle = document.querySelector('.page-title-wrapper');
 
+      if(header) header.style.display = 'none';
+      if(footer) footer.style.display = 'none';
+      if(pageTitle) pageTitle.style.display = 'none';
+    });
+  }
+</script>
 
    <div class="survey-cls"> 
   <main class="survey-main-cls">
