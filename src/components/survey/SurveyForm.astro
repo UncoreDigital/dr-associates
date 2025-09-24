@@ -1,19 +1,23 @@
-<style>
- .survey-cls { font-family: Arial, sans-serif; background: #ffffff;
-             
-             min-height: 100vh; margin: 0; }
-      .survey-main-cls { background: #fff; padding: 2rem; border-radius: 12px;
-             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-             width: 100%; max-width: 1050px;
-             position: relative;
-             margin: 150px auto 220px;
-    /* display: block;
-    position: relative;
-    margin: 0 auto; */
-    /* top: 150px; */
-    /* margin-bottom: 220px; */
-  }
-</style>
+  <style>
+    /* Minimal styling copied/adapted from your original CSS */
+    .survey-cls { font-family: Arial, sans-serif; background:#fff; min-height:100vh; margin:0; }
+    .survey-main-cls { background:#fff; padding:2rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); width:100%; max-width:1050px; margin:60px auto; }
+    .survey-main-cls h1{ text-align:center; margin-bottom:1rem; }
+    label{ display:block; margin:0.5rem 0; color:#333; }
+    input, select, textarea { margin-top:0.25rem; padding:0.5rem; border:1px solid #ccc; border-radius:6px; width:100%; box-sizing:border-box; }
+    input[type="checkbox"], input[type="radio"] { width:auto; margin-right:0.5rem; }
+    .buttons { display:flex; justify-content:space-between; margin-top:1.25rem; gap:10px; flex-wrap:wrap; }
+    button{ padding:0.6rem 1rem; border-radius:6px; border:none; cursor:pointer; }
+    button.next{ background:#70507d; color:#fff; }
+    button.prev{ background:#e0e0e0; }
+    button.submit{ background:#28a745; color:#fff; }
+    .progress{ width:100%; height:6px; background:#eee; border-radius:6px; overflow:hidden; margin-bottom:1rem; }
+    .progress > div{ height:100%; width:0; background:#70507d; transition:width .25s ease; }
+    .step{ display:none; }
+    .step.active{ display:block; }
+    .thankyou{ text-align:center; padding:2rem; }
+    @media (max-width:600px){ .survey-main-cls{ margin:20px; } }
+    </style>
 <body class="survey-cls">
     <main class="survey-main-cls">
 <div className="bg-white rounded-xl shadow-lg p-0 overflow-hidden">
