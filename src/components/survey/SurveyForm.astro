@@ -1,10 +1,4 @@
----
----
 
-<html lang="en" class="mina-iframe-siw">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Philanthropic Donor Survey</title>
     <style>
      .survey-cls { font-family: Arial, sans-serif; background: #ffffff;
              
@@ -67,111 +61,7 @@ footer {
     }
 }
     </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        let currentStep = 0;
-        const steps = document.querySelectorAll(".step");
-        const progress = document.getElementById("progress");
-        const form = document.getElementById("surveyForm");
-        const thankyou = document.getElementById("thankyouMessage");
-
-        function showStep(index) {
-          steps.forEach((s, i) => s.classList.toggle("hidden", i !== index));
-          progress.style.width = ((index + 1) / steps.length) * 100 + "%";
-        }
-
-        function validateStep(step) {
-          const inputs = steps[step].querySelectorAll("[required]");
-          let valid = true;
-          inputs.forEach(input => {
-            if ((input.type === "radio" || input.type === "checkbox")) {
-              const group = steps[step].querySelectorAll(`[name='${input.name}']`);
-              if (![...group].some(i => i.checked)) valid = false;
-            } else if (!input.value.trim()) {
-              valid = false;
-            }
-          });
-          return valid;
-        }
-
-        document.querySelectorAll("[data-next]").forEach(btn =>
-          btn.addEventListener("click", () => {
-            if (!validateStep(currentStep)) {
-              alert("⚠️ Please fill all required fields before continuing.");
-              return;
-            }
-            if (currentStep < steps.length - 1) {
-              currentStep++;
-              showStep(currentStep);
-            }
-          })
-        );
-
-        document.querySelectorAll("[data-prev]").forEach(btn =>
-          btn.addEventListener("click", () => {
-            if (currentStep > 0) {
-              currentStep--;
-              showStep(currentStep);
-            }
-          })
-        );
-
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          if (!validateStep(currentStep)) {
-            alert("⚠️ Please fill all required fields.");
-            return;
-          }
-          const formData = new FormData(form);
-          const object = {};
-          formData.forEach((value, key) => {
-            if (!object[key]) object[key] = value;
-            else {
-              if (!Array.isArray(object[key])) object[key] = [object[key]];
-              object[key].push(value);
-            }
-          });
-          const json = JSON.stringify(object);
-
-          const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: json,
-          });
-          const result = await res.json();
-          if (result.success) {
-            form.classList.add("hidden");
-            thankyou.classList.remove("hidden");
-          } else {
-            alert("Something went wrong. Please try again.");
-          }
-        });
-
-        showStep(currentStep);
-      });
-
-  function showStep(index) {
-  steps.forEach((s, i) => {
-    const inputs = s.querySelectorAll("[required]");
-    if (i === index) {
-      s.classList.remove("hidden");
-      inputs.forEach(input => input.setAttribute("required", "true"));
-    } else {
-      s.classList.add("hidden");
-      inputs.forEach(input => input.removeAttribute("required"));
-    }
-  });
-  progress.style.width = ((index + 1) / steps.length) * 100 + "%";
-}
-
-    </script>
-
-  </head>
-  <body class="survey-cls">
-    <main class="survey-main-cls">
-    <h1 style="text-align:center;    margin-bottom: 30px;">Survey Form</h1>
-      <div class="progress"><div id="progress"></div></div>
-
+   
 <div className="w-full h-screen bg-white rounded-xl shadow-lg overflow-hidden">
   <iframe
     src="https://kaironixsolution.com/survey/"
@@ -181,15 +71,6 @@ footer {
 </div>
 
 
-      <!-- Thank You -->
-      <div id="thankyouMessage" class="thankyou hidden">
-        <h2>🎉 Thank you for completing the survey!</h2>
-        <p>Your responses have been recorded successfully.</p>
-        <a href="/" class="back-toome-cls">Back to Home</a>
-      </div>
-    </main>
-  </body>
-</html>
 
 
 
