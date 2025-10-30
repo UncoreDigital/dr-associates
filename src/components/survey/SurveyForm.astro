@@ -97,6 +97,17 @@ display: block;
     margin-bottom: 20px;
     }
 }
+  /* Added headline styling for survey */
+  .survey-header{border-bottom:1px solid #ece7f2;padding-bottom:.75rem;margin-bottom:1.25rem}
+  .survey-title{font-size:1.6rem;font-weight:800;color:#48355e;text-align:center;line-height:1.25;margin:0}
+  .survey-subtitle{font-size:1.05rem;color:#70507d;text-align:center;margin-top:.45rem}
+  @media (max-width: 600px){
+    .survey-title{font-size:1.35rem}
+    .survey-subtitle{font-size:.98rem}
+  }
+  /* Question spacing tweaks */
+  form#zcqp-inv-survey > div{margin-bottom:1.2rem}
+  form#zcqp-inv-survey strong{margin-bottom:.5rem}
     </style>
 <script>
   if (window.self !== window.top) {
@@ -117,30 +128,30 @@ display: block;
   <main class="survey-main-cls">
 
 <div class="w-full bg-white rounded-xl shadow-lg overflow-hidden" style="max-width:600px;margin:auto;padding:2rem;min-height:unset;">
-      <h2 class="survey-title" style="text-align:center;font-size:1.45rem;margin-bottom:0.4rem;font-weight:700;color:#48355e;">DR Associates - ZCZP Investor Interest Survey</h2>
-      <div style="text-align:center;color:#70507d;font-size:0.81rem;margin-bottom:2rem;">Complete in under 3 minutes - Help us understand your social impact investment preferences</div>
+      <div class="survey-header">
+        <h2 class="survey-title">DR Associates - ZCZP Investor Interest Survey</h2>
+        <div class="survey-subtitle">Complete in under 3 minutes - Help us understand your social impact investment preferences</div>
+      </div>
       {typeof window!=="undefined" && window.__thankYou ? (
         <div class="thankyou"><h2>Thank you!</h2><p>This information helps us tailor ZCZP investment opportunities to your preferences and ensure we provide the best support for your social impact goals.<br/><br/>
         DR Associates | Connecting Impact Investors with Mission-Driven Organizations<br/>
         📧 info.drassociates2024@gmail.com | 🌐 www.drassociates.org.in</p></div>
       ) : (
       <form id="zcqp-inv-survey" onSubmit="event.preventDefault();window.__thankYou=true;this.style.display='none';document.querySelector('.thankyou').style.display='block';">
-        <div style="margin-bottom:1.4rem">
+        <div>
           <strong>1. Your Investment Profile</strong>
           <label><input name="investment_range" type="radio" value="1-10" required/> ₹1-10 Lakh</label>
           <label><input name="investment_range" type="radio" value="10-50"/> ₹10-50 Lakh</label>
           <label><input name="investment_range" type="radio" value="50-200"/> ₹50 Lakh-2 Crore</label>
           <label><input name="investment_range" type="radio" value=">200"/> Above ₹2 Crore</label>
         </div>
-
-        <div style="margin-bottom:1.4rem">
+        <div>
           <strong>2. ZCZP Awareness & Interest</strong>
           <label><input name="zczp_familiarity" type="radio" value="not_familiar" required/> Not familiar - would like to learn more</label>
           <label><input name="zczp_familiarity" type="radio" value="somewhat_familiar"/> Somewhat familiar - need more details</label>
           <label><input name="zczp_familiarity" type="radio" value="very_familiar"/> Very familiar - ready to explore opportunities</label>
         </div>
-
-        <div style="margin-bottom:1.4rem">
+        <div>
           <strong>3. Investment Readiness</strong>
           <label><input name="invest_pct" type="radio" value="0" required/> 0% (Not interested currently)</label>
           <label><input name="invest_pct" type="radio" value="1-10"/> 1-10%</label>
@@ -148,16 +159,14 @@ display: block;
           <label><input name="invest_pct" type="radio" value="26-50"/> 26-50%</label>
           <label><input name="invest_pct" type="radio" value=">50"/> Above 50%</label>
         </div>
-
-        <div style="margin-bottom:1.4rem">
+        <div>
           <strong>4. Preferred Investment Size</strong>
           <label><input name="invest_size" type="radio" value="10k-1L" required/> ₹10,000 - ₹1 Lakh</label>
           <label><input name="invest_size" type="radio" value="1L-10L"/> ₹1 - ₹10 Lakh</label>
           <label><input name="invest_size" type="radio" value=">10L"/> Above ₹10 Lakh</label>
           <label><input name="invest_size" type="radio" value="flexible"/> Flexible based on opportunity</label>
         </div>
-
-        <div style="margin-bottom:1.4rem">
+        <div>
           <strong>5. Key Requirements</strong>
           <label><input name="requirements" value="impact_reporting" type="checkbox"/> Clear impact reporting and measurement</label>
           <label><input name="requirements" value="third_party_assessment" type="checkbox"/> Third-party impact assessment</label>
@@ -166,8 +175,7 @@ display: block;
           <label><input name="requirements" value="tax" type="checkbox"/> Tax benefits clarification (80G eligibility)</label>
           <label><input name="requirements" value="peer_session" type="checkbox"/> Peer learning session/advisor consultation</label>
         </div>
-
-        <div style="margin-bottom:1.4rem">
+        <div>
           <strong>6. Contact & Next Steps</strong>
           <input required name="name" type="text" placeholder="Name" style="margin-bottom:0.7rem;"/>
           <input required name="organization" type="text" placeholder="Organization" style="margin-bottom:0.7rem;"/>
@@ -178,7 +186,6 @@ display: block;
           <label><input name="next_step" type="radio" value="email_update"/> No, but keep me updated via email</label>
           <label><input name="next_step" type="radio" value="written"/> Send me written materials first</label>
         </div>
-
         <button type="submit">Submit</button>
       </form>
       )}
