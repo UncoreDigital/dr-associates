@@ -34,6 +34,7 @@ const nav: NavItem[] = [
     children: [
       { href: "/services-for-ngo", label: "For NGOs" },
       { href: "/services-for-investors", label: "For Investors" },
+      { href: "/survey", label: "Survey" },
     ],
   },
 
@@ -41,11 +42,6 @@ const nav: NavItem[] = [
     href: "/blogs",
     label: "Articles",
     match: (p) => p === "/blogs" || /^\/blog-\d+$/i.test(p),
-  },
-  {
-    href: "/survey",
-    label: "Survey",
-    match: (p) => p.startsWith("/survey"),
   },
   {
     href: "/contact-us",
