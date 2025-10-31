@@ -40,7 +40,7 @@
               </p>
               <div class="testimonial-avatar">
                 <div class="avatar-thumb">
-                  <img src="assets/img/Testimonials/avatars/1.png" alt="" />
+                  <img src="assets/img/Testimonials/avatars/5.png" alt="" />
                 </div>
                 <div class="avatar-info">
                   <h2 class="title">R. Ranganathen</h2>
@@ -68,7 +68,7 @@
               </p>
               <div class="testimonial-avatar">
                 <div class="avatar-thumb">
-                  <img src="assets/img/Testimonials/avatars/2.png" alt="" />
+                  <img src="assets/img/Testimonials/avatars/4.png" alt="" />
                 </div>
                 <div class="avatar-info">
                   <h2 class="title">Ansuman Das</h2>
@@ -123,6 +123,21 @@
   margin: 0 auto 0 -105px; /* shifts slightly left for desktop */
 }
 
+/* Circle avatar frame */
+.testimonial-avatar .avatar-thumb{
+  width: 80px;
+  height: 80px;
+  border-radius: 45%;
+  overflow: hidden;
+  border: 4px solid rgba(255,255,255,0.35);
+}
+.testimonial-avatar .avatar-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Tablet screens */
 @media (max-width: 992px) {
   .tg-element-title {
@@ -147,6 +162,12 @@
 
   .testimonial-item-two {
     margin-bottom: 25px;
+  }
+
+  .testimonial-avatar .avatar-thumb{
+    width: 80px;
+    height: 80px;
+    border-width: 3px;
   }
 }
 </style>
