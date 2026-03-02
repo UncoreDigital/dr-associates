@@ -1,0 +1,274 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
+  .faq-section {
+    padding: 3rem 0;
+    background-color: var(--tg-section-background); /* secondary/surface */
+    font-family: var(--tg-body-font-family);
+  }
+  @media (min-width: 1024px) {
+    .faq-section {
+      padding: 4rem 0;
+    }
+  }
+  .faq-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width: 768px) {
+    .faq-container {
+      padding: 0 2rem;
+    }
+  }
+  .faq-header {
+    max-width: 48rem;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+  }
+  .faq-subtitle {
+    color: var(--tg-primary-color);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .faq-title {
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-heading-font-color);
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-top: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .faq-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  .faq-wrapper {
+    max-width: 48rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Keep basic styling similar to Accordion component from React */
+  .faq-item {
+    background-color: #ffffff;
+    border: 1px solid #e1e4eb;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    color: var(--tg-heading-font-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    list-style: none; /* Hide default marker */
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary:hover {
+    color: var(--tg-primary-color);
+  }
+
+  .faq-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--tg-heading-font-color);
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+    flex-shrink: 0;
+  }
+  .faq-item summary:hover .faq-icon {
+    color: var(--tg-primary-color);
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  .faq-item[open] {
+    box-shadow: 0 4px 24px -4px rgba(24, 32, 78, 0.08); /* shadow-card */
+  }
+
+  .faq-content {
+    padding: 0 1.5rem 1.25rem 1.5rem;
+    color: var(--tg-paragraph-color);
+    line-height: 1.625;
+    margin: 0;
+  }
+</style>
+
+<section class="faq-section">
+  <div class="faq-container">
+    <div class="faq-header">
+      <span class="faq-subtitle">FAQs</span>
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-wrapper">
+      <details class="faq-item">
+        <summary>
+          Is the Social Stock Exchange in India regulated by SEBI?
+          <svg
+            class="faq-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </summary>
+        <p class="faq-content">
+          Yes. The Social Stock Exchange segment on NSE/BSE operates under
+          SEBI's SSE framework, with eligibility criteria, listing guidelines,
+          continuous disclosure and social audit norms.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          What is a ZCZP bond on SSE?
+          <svg
+            class="faq-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </summary>
+        <p class="faq-content">
+          ZCZP stands for Zero Coupon Zero Principal. It is a Social Stock
+          Exchange India instrument where you get no interest and no principal
+          back. The entire amount is treated as an impact contribution, with
+          audited impact reporting and potential Section 80G tax benefits.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          What is the minimum and maximum I can invest?
+          <svg
+            class="faq-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </summary>
+        <p class="faq-content">
+          The minimum investment for many ZCZP issues is now ₹1,000, especially
+          for retail investors. Larger allocations up to and beyond ₹10,00,000
+          are possible for high-value individuals, companies and institutions
+          (Category III or higher).
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Is ZCZP impact investing profitable in India?
+          <svg
+            class="faq-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </summary>
+        <p class="faq-content">
+          Financially, no. ZCZP instruments are designed as donation-like impact
+          tools, not for financial returns. The "return" is measurable social
+          change, plus Income Tax benefits via Section 80G where applicable.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Can my company use this for CSR?
+          <svg
+            class="faq-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </summary>
+        <p class="faq-content">
+          Yes. Companies can channel CSR funds through ZCZP instruments under
+          Category II, gaining SEBI-backed accountability and board-ready
+          reporting.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Can NGOs or investors get free help on SSE?
+          <svg
+            class="faq-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </summary>
+        <p class="faq-content">
+          DR Associates offers free SSE resources, FAQs and webinars, plus a
+          free 30-minute consultation if you want to discuss listing, compliance
+          or impact investing via Social Stock Exchange India.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>

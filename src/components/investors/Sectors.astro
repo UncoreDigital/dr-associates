@@ -1,0 +1,270 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
+  .sectors-section {
+    padding: 3rem 0;
+    background-color: var(--tg-section-background); /* surface-warm */
+    font-family: var(--tg-body-font-family);
+  }
+  @media (min-width: 1024px) {
+    .sectors-section {
+      padding: 4rem 0;
+    }
+  }
+  .sectors-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width: 768px) {
+    .sectors-container {
+      padding: 0 2rem;
+    }
+  }
+  .sectors-header {
+    max-width: 48rem;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+  }
+  .sectors-subtitle {
+    color: var(--tg-primary-color);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .sectors-title {
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-heading-font-color);
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .sectors-title {
+      font-size: 2.25rem;
+    }
+  }
+  .sectors-desc {
+    color: var(--tg-paragraph-color);
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+
+  .sectors-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 64rem;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .sectors-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .sectors-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .sectors-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid #e1e4eb;
+    transition: all 0.3s ease;
+  }
+  .sectors-card:hover {
+    box-shadow: 0 12px 40px -8px rgba(24, 32, 78, 0.15); /* shadow-elevated */
+    transform: translateY(-0.25rem);
+  }
+
+  .sectors-icon-wrapper {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgba(114, 82, 127, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem auto;
+    transition: background-color 0.3s ease;
+  }
+  .sectors-card:hover .sectors-icon-wrapper {
+    background-color: rgba(114, 82, 127, 0.2);
+  }
+  .sectors-icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--tg-primary-color);
+  }
+
+  .sectors-card-title {
+    font-family: var(--tg-heading-font-family);
+    font-size: 1.25rem;
+    color: var(--tg-heading-font-color);
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+  }
+
+  .sectors-card-text {
+    color: var(--tg-paragraph-color);
+    font-size: 0.875rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+
+  .sectors-footer {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .sectors-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--tg-secondary-color); /* navy */
+    color: #ffffff;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  .sectors-btn:hover {
+    background-color: #2e386b; /* navy-light */
+  }
+</style>
+
+<section class="sectors-section">
+  <div class="sectors-container">
+    <div class="sectors-header">
+      <span class="sectors-subtitle">Impact Themes</span>
+      <h2 class="sectors-title">Sectors You Can Back</h2>
+      <p class="sectors-desc">
+        Each ZCZP opportunity includes use of funds, target beneficiaries, key
+        impact indicators and reporting frequency.
+      </p>
+    </div>
+
+    <div class="sectors-grid">
+      <!-- Sector 1 -->
+      <div class="sectors-card">
+        <div class="sectors-icon-wrapper">
+          <svg
+            class="sectors-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path
+              d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+        <h3 class="sectors-card-title">Education</h3>
+        <p class="sectors-card-text">
+          Rural and girl child education, school strengthening, learning
+          outcomes
+        </p>
+      </div>
+
+      <!-- Sector 2 -->
+      <div class="sectors-card">
+        <div class="sectors-icon-wrapper">
+          <svg
+            class="sectors-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+            ></path><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"></path>
+          </svg>
+        </div>
+        <h3 class="sectors-card-title">Healthcare</h3>
+        <p class="sectors-card-text">
+          Primary care, mobile health units, preventive screenings
+        </p>
+      </div>
+
+      <!-- Sector 3 -->
+      <div class="sectors-card">
+        <div class="sectors-icon-wrapper">
+          <svg
+            class="sectors-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle
+              cx="9"
+              cy="7"
+              r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path
+              d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <h3 class="sectors-card-title">Livelihoods</h3>
+        <p class="sectors-card-text">
+          Women's self-help groups, youth skilling, micro-entrepreneurship
+        </p>
+      </div>
+
+      <!-- Sector 4 -->
+      <div class="sectors-card">
+        <div class="sectors-icon-wrapper">
+          <svg
+            class="sectors-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="m13.4 2.09a2 2 0 0 0-2.82 0l-8 8a2 2 0 0 0 0 2.82l8 8a2 2 0 0 0 2.82 0l8-8a2 2 0 0 0 0-2.82z"
+            ></path><path d="M12 7v10"></path><path d="m8 11 4-4 4 4"></path>
+          </svg>
+        </div>
+        <h3 class="sectors-card-title">Environment</h3>
+        <p class="sectors-card-text">
+          Afforestation, water access, climate resilience projects
+        </p>
+      </div>
+    </div>
+
+    <div class="sectors-footer">
+      <a href="https://wa.me/918141155525" class="sectors-btn" target="_blank">
+        Request Current ZCZP Opportunity Deck
+      </a>
+    </div>
+  </div>
+</section>

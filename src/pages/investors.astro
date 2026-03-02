@@ -1,0 +1,36 @@
+---
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
+import InvestorsSeo from "../components/seo/InvestorsSeo.astro";
+import Popup from "../components/Popup.astro";
+
+// Import Investors Page Components
+import Hero from "../components/investors/Hero.astro";
+import WhatIsZczp from "../components/investors/WhatIsZczp.astro";
+import WhyWorkWithUs from "../components/investors/WhyWorkWithUs.astro";
+import WhoCanInvest from "../components/investors/WhoCanInvest.astro";
+import TaxBenefits from "../components/investors/TaxBenefits.astro";
+import HowToInvest from "../components/investors/HowToInvest.astro";
+import Sectors from "../components/investors/Sectors.astro";
+import WhatYouReceive from "../components/investors/WhatYouReceive.astro";
+import Faq from "../components/investors/Faq.astro";
+import FinalCta from "../components/investors/FinalCta.astro";
+---
+
+<Layout>
+  <Fragment slot="styles">
+    <InvestorsSeo />
+  </Fragment>
+
+  <Hero />
+  <WhatIsZczp />
+  <WhyWorkWithUs />
+  <WhoCanInvest />
+  <TaxBenefits />
+  <HowToInvest />
+  <Sectors />
+  <WhatYouReceive />
+  <Faq />
+  <FinalCta />
+  <Popup />
+</Layout>

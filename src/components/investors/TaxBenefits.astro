@@ -1,0 +1,247 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
+  .tax-section {
+    padding: 3rem 0;
+    background-color: #ffffff;
+    font-family: var(--tg-body-font-family);
+  }
+  @media (min-width: 1024px) {
+    .tax-section {
+      padding: 4rem 0;
+    }
+  }
+  .tax-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width: 768px) {
+    .tax-container {
+      padding: 0 2rem;
+    }
+  }
+  .tax-header {
+    max-width: 48rem;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+  }
+  .tax-subtitle {
+    color: var(--tg-primary-color);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .tax-title {
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-heading-font-color);
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .tax-title {
+      font-size: 2.25rem;
+    }
+  }
+  .tax-desc {
+    color: var(--tg-paragraph-color);
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+
+  .tax-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 64rem;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .tax-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .tax-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid #e1e4eb;
+    transition: all 0.3s ease;
+  }
+  .tax-card:hover {
+    box-shadow: 0 12px 40px -8px rgba(24, 32, 78, 0.15);
+  }
+
+  .tax-icon-wrapper {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgba(114, 82, 127, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem auto;
+  }
+  .tax-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--tg-primary-color);
+  }
+
+  .tax-card-title {
+    font-family: var(--tg-heading-font-family);
+    font-size: 1.125rem;
+    color: var(--tg-heading-font-color);
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+  }
+
+  .tax-card-text {
+    color: var(--tg-paragraph-color);
+    font-size: 0.875rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+
+  .tax-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+  .tax-footer-text {
+    color: var(--tg-paragraph-color);
+    margin-bottom: 1.5rem;
+  }
+  .tax-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--tg-primary-color);
+    color: var(--tg-heading-font-color);
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  .tax-btn:hover {
+    background-color: var(--tg-primary-color); /* gold-light */
+  }
+</style>
+
+<section class="tax-section">
+  <div class="tax-container">
+    <div class="tax-header">
+      <span class="tax-subtitle">Tax Advantages</span>
+      <h2 class="tax-title">Income Tax Benefits for ZCZP Investors</h2>
+      <p class="tax-desc">
+        One of the strongest reasons to use Social Stock Exchange instruments
+        instead of informal donations is the structured way Income Tax and
+        reporting work.
+      </p>
+    </div>
+
+    <div class="tax-grid">
+      <!-- Card 1 -->
+      <div class="tax-card">
+        <div class="tax-icon-wrapper">
+          <svg
+            class="tax-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"
+            ></path><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"
+            ></path><path d="M12 17.5v-11"></path>
+          </svg>
+        </div>
+        <h3 class="tax-card-title">Section 80G Deduction</h3>
+        <p class="tax-card-text">
+          Investments in ZCZP instruments issued by eligible NPOs on the SSE are
+          treated as eligible donations under Section 80G of the Income Tax Act.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="tax-card">
+        <div class="tax-icon-wrapper">
+          <svg
+            class="tax-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
+            ></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"
+            ></path><path d="M16 13H8"></path><path d="M16 17H8"></path>
+          </svg>
+        </div>
+        <h3 class="tax-card-title">Standardised Tax Route</h3>
+        <p class="tax-card-text">
+          Instead of multiple donation receipts from different NGOs, you receive
+          documentation that clearly establishes your ZCZP contribution and 80G
+          eligibility.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="tax-card">
+        <div class="tax-icon-wrapper">
+          <svg
+            class="tax-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+            ></path><path d="M12 9v4"></path><path d="M12 17h.01"></path>
+          </svg>
+        </div>
+        <h3 class="tax-card-title">Important Caveat</h3>
+        <p class="tax-card-text">
+          Subscribers of ZCZP instruments generally do not receive any other
+          Income Tax benefit beyond the Section 80G deduction on the eligible
+          amount.
+        </p>
+      </div>
+    </div>
+
+    <div class="tax-footer">
+      <p class="tax-footer-text">
+        For corporate investors, SEBI's push for social sector bonds strengthens
+        the case for using SSE as part of a CSR or social finance strategy.
+      </p>
+      <a href="https://wa.me/918141155525" class="tax-btn" target="_blank">
+        Understand Tax Benefits for Your ZCZP Allocation
+      </a>
+    </div>
+  </div>
+</section>

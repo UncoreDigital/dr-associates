@@ -1,0 +1,198 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
+  .dr-fc-section {
+    padding: 3rem 0;
+    background-color: var(--tg-secondary-color);
+    font-family: var(--tg-body-font-family);
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+  @media (min-width: 1024px) {
+    .dr-fc-section {
+      padding: 4rem 0;
+    }
+  }
+  .dr-fc-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+    display: block;
+  }
+  @media (min-width: 768px) {
+    .dr-fc-container {
+      padding: 0 2rem;
+    }
+  }
+  .dr-fc-content {
+    max-width: 48rem;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+  }
+  .dr-fc-title {
+    font-family: var(--tg-heading-font-family);
+    color: #ffffff;
+    font-size: 1.875rem;
+    line-height: 1.25;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    display: block;
+    word-break: normal;
+  }
+  @media (min-width: 768px) {
+    .dr-fc-title {
+      font-size: 3rem;
+    }
+  }
+  .dr-fc-gradient {
+    background: linear-gradient(to right, var(--tg-primary-color), #f8c366);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .dr-fc-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin-bottom: 2.5rem;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .dr-fc-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (min-width: 640px) {
+    .dr-fc-buttons {
+      flex-direction: row;
+    }
+  }
+
+  .dr-fc-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--tg-primary-color);
+    color: var(--tg-white);
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .dr-fc-btn-primary:hover {
+    background-color: var(--tg-secondary-color);
+    color: var(--tg-white);
+    box-shadow: 0 12px 40px -8px rgba(24, 32, 78, 0.15);
+  }
+
+  .dr-fc-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.125rem;
+  }
+  .dr-fc-btn-secondary:hover {
+    border-color: var(--tg-primary-color);
+    background-color: var(--tg-primary-color);
+    color: var(--tg-white);
+  }
+
+  .dr-fc-icon-arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Decorative Orbs */
+  .dr-fc-orb-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24rem;
+    height: 24rem;
+    background-color: rgba(114, 82, 127, 0.05);
+    border-radius: 50%;
+    filter: blur(64px);
+    transform: translate(50%, -50%);
+  }
+  .dr-fc-orb-2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 18rem;
+    height: 18rem;
+    background-color: rgba(114, 82, 127, 0.05);
+    border-radius: 50%;
+    filter: blur(64px);
+    transform: translate(-50%, 50%);
+  }
+</style>
+
+<section id="contact" class="dr-fc-section">
+  <div class="dr-fc-orb-1"></div>
+  <div class="dr-fc-orb-2"></div>
+
+  <div class="dr-fc-container">
+    <div class="dr-fc-content">
+      <h2 class="dr-fc-title">
+        Your Capital. Their Transformation.<br />
+        <span class="dr-fc-gradient">SEBI's Framework.</span>
+      </h2>
+      <p class="dr-fc-desc">
+        If you believe in structured impact investing in India and want clarity
+        on Social Stock Exchange, ZCZP instruments, SSE advisory services, tax
+        benefits and investment limits — DR Associates can guide your next move.
+      </p>
+      <div class="dr-fc-buttons">
+        <a
+          href="https://www.drassociates.org.in/contact-us"
+          class="dr-fc-btn-primary"
+          target="_blank"
+        >
+          Book Free SSE Investor Consultation
+          <svg
+            class="dr-fc-icon-arrow"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        <a
+          href="https://www.drassociates.org.in/contact-us"
+          target="_blank"
+          class="dr-fc-btn-secondary"
+        >
+          Request ZCZP Opportunities Guide
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

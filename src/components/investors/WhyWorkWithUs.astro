@@ -1,0 +1,254 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
+  .why-dr-section {
+    padding: 3rem 0;
+    background-color: var(--tg-secondary-color); /* navy */
+    font-family: var(--tg-body-font-family);
+  }
+  @media (min-width: 1024px) {
+    .why-dr-section {
+      padding: 4rem 0;
+    }
+  }
+  .why-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width: 768px) {
+    .why-container {
+      padding: 0 2rem;
+    }
+  }
+  .why-header {
+    max-width: 48rem;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+  }
+  .why-subtitle {
+    color: var(--tg-primary-color); /* gold */
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .why-title {
+    font-family: var(--tg-heading-font-family);
+    color: #ffffff;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .why-title {
+      font-size: 2.25rem;
+    }
+  }
+  .why-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+
+  .why-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 56rem;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .why-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .why-card {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: rgba(46, 56, 107, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+  }
+  .why-card:hover {
+    border-color: rgba(114, 82, 127, 0.3); /* hover border gold */
+  }
+
+  .why-icon-wrapper {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: rgba(114, 82, 127, 0.15); /* gold/15 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .why-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--tg-primary-color);
+  }
+
+  .why-card-content {
+    flex: 1;
+  }
+  .why-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+  .why-card-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+</style>
+
+<section class="why-dr-section" id="why-dr-associates">
+  <div class="why-container">
+    <div class="why-header">
+      <span class="why-subtitle">Your SSE Advisory Partner</span>
+      <h2 class="why-title">Why Work With DR Associates?</h2>
+      <p class="why-desc">
+        Most investors are still figuring out how the Social Stock Exchange
+        works, what SEBI expects, and how ZCZP issuances are structured. DR
+        Associates acts as your SSE advisory partner.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <!-- Card 1 -->
+      <div class="why-card">
+        <div class="why-icon-wrapper">
+          <svg
+            class="why-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"
+            ></path>
+          </svg>
+        </div>
+        <div class="why-card-content">
+          <h3 class="why-card-title">Expert SSE Consultants</h3>
+          <p class="why-card-text">
+            Specialised focus on SSE advisory services: eligibility evaluation,
+            registration assistance, documentation, and compliance with SEBI's
+            framework.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="why-card">
+        <div class="why-icon-wrapper">
+          <svg
+            class="why-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+            ></path><polyline points="14 2 14 8 20 8"></polyline><path
+              d="m9 15 2 2 4-4"></path>
+          </svg>
+        </div>
+        <div class="why-card-content">
+          <h3 class="why-card-title">Rigorous NGO Curation</h3>
+          <p class="why-card-text">
+            Work only with SSE-ready NGOs that have credible governance, clear
+            impact models, and the right Income Tax registrations to issue
+            ZCZPs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="why-card">
+        <div class="why-icon-wrapper">
+          <svg
+            class="why-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle
+              cx="9"
+              cy="7"
+              r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path
+              d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="why-card-content">
+          <h3 class="why-card-title">End-to-End Support</h3>
+          <p class="why-card-text">
+            From understanding what impact investing means under SSE, to
+            reviewing offering documents and interpreting impact reports — one
+            team guiding you.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="why-card">
+        <div class="why-icon-wrapper">
+          <svg
+            class="why-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path
+              d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+        </div>
+        <div class="why-card-content">
+          <h3 class="why-card-title">Compliance Clarity</h3>
+          <p class="why-card-text">
+            Clear, simple explanations of SEBI Social Stock Exchange rules,
+            listing norms, impact reporting, and social audit requirements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

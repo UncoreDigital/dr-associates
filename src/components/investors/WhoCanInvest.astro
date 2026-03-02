@@ -1,0 +1,204 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
+  .investor-section {
+    padding: 3rem 0;
+    background-color: var(--tg-section-background); /* surface-warm */
+    font-family: var(--tg-body-font-family);
+  }
+  @media (min-width: 1024px) {
+    .investor-section {
+      padding: 4rem 0;
+    }
+  }
+  .investor-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width: 768px) {
+    .investor-container {
+      padding: 0 2rem;
+    }
+  }
+  .investor-header {
+    max-width: 48rem;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+  }
+  .investor-subtitle {
+    color: var(--tg-primary-color);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .investor-title {
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-heading-font-color);
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .investor-title {
+      font-size: 2.25rem;
+    }
+  }
+  .investor-desc {
+    color: var(--tg-paragraph-color);
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+  .investor-desc-strong {
+    font-weight: 600;
+    color: var(--tg-heading-font-color);
+  }
+
+  .investor-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 56rem;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .investor-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .investor-card {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 24px -4px rgba(24, 32, 78, 0.08); /* shadow-card */
+    transition: box-shadow 0.3s ease;
+    border-left: 4px solid #e1e4eb;
+  }
+  .investor-card:hover {
+    box-shadow: 0 12px 40px -8px rgba(24, 32, 78, 0.15); /* shadow-elevated */
+  }
+  .border-gold {
+    border-left-color: var(--tg-primary-color);
+  }
+  .border-teal {
+    border-left-color: #339980;
+  }
+
+  .investor-card-badge {
+    display: inline-block;
+    color: var(--tg-primary-color);
+    background-color: rgba(114, 82, 127, 0.1); /* bg-gold/10 */
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+  }
+
+  .investor-card-title {
+    font-family: var(--tg-heading-font-family);
+    font-size: 1.125rem;
+    color: var(--tg-heading-font-color);
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+  .investor-card-text {
+    color: var(--tg-paragraph-color);
+    font-size: 0.875rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+
+  .investor-note {
+    max-width: 48rem;
+    margin: 2.5rem auto 0 auto;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    background-color: #e1f2ed; /* teal-light */
+    border: 1px solid rgba(51, 153, 128, 0.2);
+  }
+  .investor-note p {
+    font-size: 0.875rem;
+    color: #339980;
+    line-height: 1.625;
+    margin: 0;
+  }
+  .investor-note strong {
+    font-weight: 600;
+  }
+</style>
+
+<section class="investor-section">
+  <div class="investor-container">
+    <div class="investor-header">
+      <span class="investor-subtitle">Who Can Invest</span>
+      <h2 class="investor-title">Investor Categories & Limits</h2>
+      <p class="investor-desc">
+        SEBI has reduced the minimum investment for many ZCZP instruments to <span
+          class="investor-desc-strong">₹1,000</span
+        >, making impact investing accessible to a much wider base.
+      </p>
+    </div>
+
+    <div class="investor-grid">
+      <!-- Category 1 -->
+      <div class="investor-card border-gold">
+        <span class="investor-card-badge">Category I</span>
+        <h3 class="investor-card-title">Institutional Investors</h3>
+        <p class="investor-card-text">
+          Banks, mutual funds, AIFs, pension and provident funds, insurance
+          companies, large DFIs, NBFCs and similar entities.
+        </p>
+      </div>
+
+      <!-- Category 2 -->
+      <div class="investor-card border-teal">
+        <span class="investor-card-badge">Category II</span>
+        <h3 class="investor-card-title">Companies, Trusts & Organisations</h3>
+        <p class="investor-card-text">
+          Companies (under Companies Act 2013), LLPs, partnership firms,
+          co-operative banks, charitable trusts, societies, and statutory
+          bodies.
+        </p>
+      </div>
+
+      <!-- Category 3 -->
+      <div class="investor-card border-gold">
+        <span class="investor-card-badge">Category III</span>
+        <h3 class="investor-card-title">High Value Individuals</h3>
+        <p class="investor-card-text">
+          Resident individuals and HUFs (through Karta) investing above
+          ₹10,00,000 across all ZCZP instruments. Ideal for HNIs and family
+          offices.
+        </p>
+      </div>
+
+      <!-- Category 4 -->
+      <div class="investor-card border-teal">
+        <span class="investor-card-badge">Category IV</span>
+        <h3 class="investor-card-title">Retail Individual Investors</h3>
+        <p class="investor-card-text">
+          Resident individuals and HUFs investing up to ₹10,00,000. Retail
+          investors typically invest up to ₹5,00,000 per bidding option, often
+          via UPI.
+        </p>
+      </div>
+    </div>
+
+    <div class="investor-note">
+      <p>
+        <strong>NRI Note:</strong> NRI participation in SSE instruments is subject
+        to FEMA and RBI guidelines. DR Associates coordinates with your tax and legal
+        advisors to ensure correct investment.
+      </p>
+    </div>
+  </div>
+</section>

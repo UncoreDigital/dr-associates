@@ -1,0 +1,229 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap");
+
+  .how-section {
+    padding: 3rem 0;
+    background-color: var(--tg-secondary-color); /* navy */
+    font-family: var(--tg-body-font-family);
+  }
+  @media (min-width: 1024px) {
+    .how-section {
+      padding: 4rem 0;
+    }
+  }
+  .how-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width: 768px) {
+    .how-container {
+      padding: 0 2rem;
+    }
+  }
+  .how-header {
+    max-width: 48rem;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+  }
+  .how-subtitle {
+    color: var(--tg-primary-color); /* gold */
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .how-title {
+    font-family: var(--tg-heading-font-family);
+    color: #ffffff;
+    font-size: 1.875rem;
+    line-height: 1.2;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .how-title {
+      font-size: 2.25rem;
+    }
+  }
+  .how-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin: 0;
+  }
+
+  .how-steps {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  .step-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .step-column-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .step-number {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: var(--tg-primary-color);
+    color: var(--tg-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+  }
+  .step-line {
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 0.5rem 0;
+  }
+
+  .step-column-right {
+    padding-bottom: 2.5rem;
+  }
+
+  .step-title {
+    font-family: var(--tg-heading-font-family);
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .step-text {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.625;
+    margin: 0;
+  }
+
+  .how-footer {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .how-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--tg-primary-color);
+    color: var(--tg-heading-font-color);
+    padding: 0.875rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  .how-btn:hover {
+    background-color: var(--tg-secondary-color);
+    color: var(--tg-white);
+  }
+</style>
+
+<section class="how-section">
+  <div class="how-container">
+    <div class="how-header">
+      <span class="how-subtitle">Investment Process</span>
+      <h2 class="how-title">How to Invest in ZCZP Instruments</h2>
+      <p class="how-desc">
+        A simple, investor-friendly flow to get started with impact investing
+        through the Social Stock Exchange.
+      </p>
+    </div>
+
+    <div class="how-steps">
+      <!-- Step 1 -->
+      <div class="step-row">
+        <div class="step-column-left">
+          <div class="step-number">01</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-column-right">
+          <h3 class="step-title">Book a Discovery Call</h3>
+          <p class="step-text">
+            Share your impact themes, typical ticket size, preferred sectors
+            (education, healthcare, livelihoods, environment), and whether
+            you're investing as an individual, company, or institution.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-row">
+        <div class="step-column-left">
+          <div class="step-number">02</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-column-right">
+          <h3 class="step-title">Choose Your SSE Opportunities</h3>
+          <p class="step-text">
+            DR Associates presents a curated list of live or upcoming ZCZP
+            issues aligned with your profile, along with summaries of the NGO,
+            impact metrics, and compliance status.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-row">
+        <div class="step-column-left">
+          <div class="step-number">03</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-column-right">
+          <h3 class="step-title">Confirm Category & Limits</h3>
+          <p class="step-text">
+            Based on your investor category (I to IV) and preferred amount, we
+            confirm your investment stays within regulatory limits and falls
+            under the right bucket for reporting and tax deductions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-row">
+        <div class="step-column-left">
+          <div class="step-number">04</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-column-right">
+          <h3 class="step-title">Complete Documentation & Payment</h3>
+          <p class="step-text">
+            Review the offer documents, confirm Section 80G eligibility where
+            applicable, and complete the application via the prescribed
+            mechanism (including UPI for Category IV retail).
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step-row">
+        <div class="step-column-left">
+          <div class="step-number">05</div>
+        </div>
+        <div class="step-column-right">
+          <h3 class="step-title">Receive Reports & Tax Documentation</h3>
+          <p class="step-text">
+            After subscription, you receive confirmation and, over time, audited
+            Social Stock Exchange impact reports and tax documentation for your
+            Income Tax filings.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-footer">
+      <a href="https://wa.me/918141155525" class="how-btn" target="_blank">
+        Start Your ZCZP Investment Journey
+      </a>
+    </div>
+  </div>
+</section>

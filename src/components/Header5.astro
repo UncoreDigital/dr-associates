@@ -33,10 +33,15 @@ const nav: NavItem[] = [
     match: (p) => p.startsWith("/services"),
     children: [
       { href: "/services-for-ngo", label: "For NGOs" },
-      { href: "/services-for-investors", label: "For Investors" },
+      { href: "/investors", label: "For Investors" },
       { href: "/survey", label: "Survey" },
     ],
   },
+  // {
+  //   href: "/investors",
+  //   label: "Investors Landing",
+  //   match: (p) => p.startsWith("/investors"),
+  // },
 
   {
     href: "/blogs",
