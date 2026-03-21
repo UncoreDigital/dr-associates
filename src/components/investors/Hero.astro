@@ -1,64 +1,103 @@
 ---
 
 ---
+<style>
+  .hero-custom-btn {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  .hero-custom-btn:hover {
+    border-color: #ffffff;
+  }
+  
+  .investor-hero-bg {
+    padding: clamp(80px, 10vw, 120px) 0;
+    min-height: clamp(60vh, 80vh, 800px);
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .investor-hero-content {
+    background: rgba(114, 82, 127, 0.95);
+    padding: clamp(24px, 5vw, 40px);
+    border-radius: 12px;
+  }
+  
+  .investor-hero-title {
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.25;
+    margin-bottom: 25px;
+    color: #fff;
+    font-weight: 700;
+  }
+  
+  .investor-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
 
-<section
-  class="banner-area-eight fix banner-bg-eight"
-  style="background-image: url('/assets/img/banner/investor-hero.jpg'); background-size: cover; background-position: center;"
->
-  <!-- Note: If you have a specific bg image for investors, replace dr-hero-4.png with it. -->
-  <div class="container-fluid p-0">
-    <div class="row g-0 justify-content-start">
-      <div class="col-xl-6 col-lg-7">
-        <div class="banner-content-eight">
-          <span class="sub-title pt-60" data-aos="fade-up" data-aos-delay="200">
-            DR Associates | Services for Investors
-          </span>
+  /* Fix button layout on small mobiles gracefully without breaking the circle absolute positioning */
+  @media (max-width: 480px) {
+    .investor-hero-buttons {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
 
-          <h1
-            class="title"
-            style="font-size: 54px; font-weight: 700; color: #fff; margin-bottom: 25px;"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            Structured Impact Investing on <span>India's Social Stock Exchange</span>
-          </h1>
+  /* Force left-align text natively on all responsive layouts */
+  @media (max-width: 991px) {
+    .investor-hero-content {
+      text-align: left !important;
+    }
+    .investor-hero-content .sub-title::before {
+      left: 0 !important;
+      transform: none !important;
+      margin-left: 0 !important;
+    }
+  }
+</style>
 
-          <p
-            style="color: #ddd; margin-bottom: 40px;"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            DR Associates is India's SEBI registered investment advisory firm for ZCZP instruments. We connect purpose-driven investors with verified, SSE-listed NGOs through a fully regulated impact investing framework.
-          </p>
-
-          <div class="banner-btn-seven" data-aos="fade-up" data-aos-delay="700">
-            <a
-              href="https://wa.me/918141155525"
-              class="btn btn-three"
-              target="_blank"
-              >Book Free Consultation</a
-            >
-            <a
-              href="#zczp-opportunities"
-              class="btn btn-three"
-              >Get Investor Brief</a
-            >
-          </div>
-
-          <div class="banner-content-shape">
-            <img
-              src="assets/img/banner/h9_hero_shape01.png"
-              alt="shape"
-              data-aos="fade-up-right"
-              data-aos-delay="800"
-            />
-            <img
-              src="assets/img/banner/h9_hero_shape02.png"
-              alt="shape"
-              data-aos="fade-down-left"
-              data-aos-delay="800"
-            />
+<section class="slider-area">
+  <div class="slider-active">
+    <div
+      class="single-slider slider-bg investor-hero-bg"
+      data-background="/assets/img/banner/investor-hero-1.png"
+      style="background-image: url('/assets/img/banner/investor-hero-1.png');"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-10 col-12">
+            <div class="slider-content investor-hero-content">
+              <span class="sub-title" data-aos="fade-up" data-aos-delay="200" style="color: #fff;"
+                >Services for Investors</span
+              >
+              <h2
+                class="title investor-hero-title"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                Structured Impact Investing on India's Social Stock Exchange
+              </h2>
+              <p data-aos="fade-up" data-aos-delay="500" style="color: rgba(255,255,255,0.85); margin-bottom: 30px;">
+                DR Associates is India's SEBI registered investment advisory firm for ZCZP instruments. We connect purpose-driven investors with verified, SSE-listed NGOs through a fully regulated impact investing framework.
+              </p>
+              <div class="banner-btn investor-hero-buttons" data-aos="fade-up" data-aos-delay="700">
+                <a
+                  href="/contact-us"
+                  class="btn hero-custom-btn"
+                  >Book Free Consultation</a
+                >
+                <a
+                  href="/contact-us"
+                  class="btn hero-custom-btn"
+                  >Get Investor Brief</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
