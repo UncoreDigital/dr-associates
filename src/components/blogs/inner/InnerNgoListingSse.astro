@@ -2,15 +2,34 @@
 import Author from "./Author.astro" 
 import "../../../../public/assets/css/blog-bottom-tag.css";
 ---
+<style>
+  .pointer-list {
+    list-style: none !important;
+    padding-left: 0;
+  }
+  .pointer-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+  }
+  .pointer-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2372527f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'%3E%3C/path%3E%3Cpath d='M12 5l7 7-7 7'%3E%3C/path%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+</style>
 <!-- blog-details-area -->
 <section class="blog-details-area pt-120 pb-120">
   <div class="container">
     <div class="blog-details-wrap">
       <div class="row justify-content-center">
         <div class="">
-          <div class="blog-details-thumb">
-            <img src="assets/img/blog/inner/blog-1-inner.png" alt="" />
-          </div>
           <div class="blog-details-content">
             <h2 class="title">
               Step by Step Guide to NGO Listing on the Social Stock Exchange in India in 2026
@@ -40,7 +59,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <p>Before anything else, define your objective. Do you want stronger credibility, better donor access, improved fundraising structure, or a more formal growth path?</p>
             <p>This matters because the listing journey requires time and internal commitment. If the leadership team is not clear on the goal, the process can quickly lose direction.</p>
             <p>A simple starting point is to ask:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Why are we considering the Social Stock Exchange now</li>
               <li>What outcome do we want from listing</li>
               <li>How will this support our future fundraising strategy</li>
@@ -50,7 +69,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">Step 2: Assess Organisational Readiness</h3>
             <p>Once the objective is clear, your NGO needs a reality check. Readiness is not about being perfect. It is about knowing where you stand.</p>
             <p>Review the following areas:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Legal structure</li>
               <li>Governance practices</li>
               <li>Board oversight</li>
@@ -64,7 +83,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">Step 3: Organise Core Documents</h3>
             <p>Many NGOs lose momentum because their documents are scattered, incomplete, or inconsistent across departments. Good preparation starts with good organisation.</p>
             <p>Create a central system for:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Registration and legal documents</li>
               <li>Governance records</li>
               <li>Financial statements</li>
@@ -78,7 +97,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">Step 4: Strengthen Governance Systems</h3>
             <p>Governance is one of the most important signals of credibility. Even if your fieldwork is strong, weak governance can affect how your organisation is perceived.</p>
             <p>Focus on strengthening:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Board processes</li>
               <li>Oversight responsibilities</li>
               <li>Financial accountability</li>
@@ -91,7 +110,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">Step 5: Build a Measurable Impact Framework</h3>
             <p>If your NGO cannot explain impact clearly, fundraising becomes harder. Stakeholders want to understand not just what you do, but what changes because of your work.</p>
             <p>Your impact framework should answer:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>What problem are we solving</li>
               <li>Who benefits</li>
               <li>What outputs do we deliver</li>
@@ -108,7 +127,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">Step 7: Develop a Strong Fundraising Narrative</h3>
             <p>Once your organisation is more prepared internally, the next step is external communication. Your NGO needs a clear and credible story.</p>
             <p>That story should explain:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Your mission</li>
               <li>The social need you address</li>
               <li>Your operational track record</li>
@@ -121,7 +140,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">Step 8: Treat Listing Like a Managed Project</h3>
             <p>One of the easiest mistakes NGOs make is treating the listing process like a side task. In reality, it needs ownership, timelines, and regular follow up.</p>
             <p>A practical internal structure could include:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>One project lead</li>
               <li>One finance owner</li>
               <li>One documentation coordinator</li>
@@ -141,7 +160,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
 
             <h3 class="title-two">A Simple NGO Readiness Checklist</h3>
             <p>Use this checklist before moving ahead:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Define your listing objective</li>
               <li>Assess readiness honestly</li>
               <li>Organise key documentation</li>

@@ -2,15 +2,34 @@
 import Author from "./Author.astro" 
 import "../../../../public/assets/css/blog-bottom-tag.css";
 ---
+<style>
+  .pointer-list {
+    list-style: none !important;
+    padding-left: 0;
+  }
+  .pointer-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+  }
+  .pointer-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2372527f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'%3E%3C/path%3E%3Cpath d='M12 5l7 7-7 7'%3E%3C/path%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+</style>
 <!-- blog-details-area -->
 <section class="blog-details-area pt-120 pb-120">
   <div class="container">
     <div class="blog-details-wrap">
       <div class="row justify-content-center">
         <div class="">
-          <div class="blog-details-thumb">
-            <img src="assets/img/blog/inner/blog-1-inner.png" alt="" />
-          </div>
           <div class="blog-details-content">
             <h2 class="title">
               How an SSE Consultant Can Help Your NGO Raise Funds Effectively in 2026
@@ -45,7 +64,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">What an SSE Consultant Actually Does</h3>
             <p>An SSE consultant is not just someone who helps with paperwork. The role is much broader. A good consultant helps your NGO become listing ready, funding ready, and stakeholder ready.</p>
             <p>Typically, this includes support with:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Readiness assessment</li>
               <li>Governance review</li>
               <li>Documentation planning</li>
@@ -61,7 +80,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">1. Readiness Assessment Comes First</h3>
             <p>Before an NGO starts the listing journey, it needs an honest understanding of its current state. Many organisations assume they are ready because their programme work is strong. However, listing readiness involves much more than field impact.</p>
             <p>A consultant usually reviews the following:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Legal and organisational structure</li>
               <li>Governance maturity</li>
               <li>Financial records and disclosures</li>
@@ -74,7 +93,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">2. Governance and Compliance Become Stronger</h3>
             <p>One of the biggest reasons NGOs seek expert help is to strengthen internal systems before approaching a formal platform. That includes governance, disclosures, process discipline, and accountability.</p>
             <p>An SSE consultant can help your organisation:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Identify governance gaps</li>
               <li>Standardise policies and records</li>
               <li>Improve board level readiness</li>
@@ -86,7 +105,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">3. Impact Reporting Gets Sharper</h3>
             <p>Many NGOs can describe what they do. Fewer can clearly show how their work creates measurable change. This is where fundraising opportunities are often won or lost.</p>
             <p>A consultant helps your NGO build a clearer impact story by answering questions such as:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>What social problem are we solving</li>
               <li>Who benefits from our work</li>
               <li>What outcomes are we measuring</li>
@@ -103,7 +122,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
             <h3 class="title-two">5. The Process Becomes Manageable</h3>
             <p>One of the biggest hidden benefits of consultant support is project management. Listing related work can easily stall when teams do not have a timeline, document checklist, or clear ownership.</p>
             <p>A consultant helps by:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>Creating a step by step roadmap</li>
               <li>Tracking key submissions</li>
               <li>Reviewing drafts and supporting documents</li>
@@ -118,7 +137,7 @@ import "../../../../public/assets/css/blog-bottom-tag.css";
 
             <h3 class="title-two">Common Mistakes NGOs Make Without Expert Support</h3>
             <p>When NGOs try to manage the process without specialist guidance, they often run into familiar problems:</p>
-            <ul class="list-wrap m-4" style="list-style:disc;">
+            <ul class="pointer-list m-4">
               <li>They start too early without assessing readiness</li>
               <li>They underestimate governance expectations</li>
               <li>They submit incomplete or inconsistent information</li>
