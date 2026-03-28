@@ -16,6 +16,11 @@ $(window).on('load', function () {
 	tg_title_animation();
 });
 
+// Fallback: If some external assets (like GTM or fonts) take too long, hide preloader anyway after 1s
+setTimeout(function() {
+	preloader();
+}, 3000);
+
 
 
 /*=============================================
