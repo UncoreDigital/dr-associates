@@ -3,6 +3,16 @@
         font-size:50px !important;
     }
 
+    /* Fix image cropping on desktop while maintaining native aspect and anchoring right cards */
+    @media (min-width: 992px) {
+        .single-slider[data-background="assets/img/banner/drhero.png"] {
+            background-color: #E6E4E1 !important;
+            background-position: right center !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+        }
+    }
+
 /* Mobile view background image */
 /* @media (max-width: 767px) {
     .single-slider.slider-bg {
@@ -13,7 +23,7 @@
  <!-- slider-area -->
             <section class="slider-area">
                 <div class="slider-active">
-                    <div class="single-slider slider-bg" data-background="assets/img/banner/dr-hero-4.png">
+                    <div class="single-slider slider-bg" data-background="assets/img/banner/drhero.png">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6">
