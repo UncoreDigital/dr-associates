@@ -1,0 +1,168 @@
+<style>
+  .ipo-survey-cls { font-family: Arial, sans-serif; background: #ffffff; min-height: 100vh; margin: 0; }
+  .ipo-survey-main { margin: 150px auto 60px; }
+  .ipo-survey-box { max-width: 680px; margin: auto; padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  .ipo-survey-header { border-bottom: 1px solid #ece7f2; padding-bottom: .75rem; margin-bottom: 1.5rem; }
+  .ipo-survey-title { font-size: 1.6rem; font-weight: 800; color: #48355e; text-align: center; line-height: 1.25; margin: 0; }
+  .ipo-survey-subtitle { font-size: 1rem; color: #70507d; text-align: center; margin-top: .45rem; }
+  .ipo-instructions { background: #f8f4fc; border-left: 3px solid #70507d; padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1.5rem; font-size: 0.9rem; color: #48355e; }
+  .ipo-q { margin-bottom: 1.4rem; }
+  .ipo-q strong { display: block; margin-bottom: 0.5rem; color: #222; font-size: 0.97rem; }
+  .ipo-q label { display: flex; align-items: flex-start; gap: 0.5rem; margin: 0.35rem 0; color: #444; font-size: 0.93rem; cursor: pointer; }
+  .ipo-q label input { margin-top: 3px; flex-shrink: 0; }
+  .ipo-submit-btn { background: #70507d; color: #fff; border: none; border-radius: 6px; padding: 0.75rem 2rem; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 1rem; font-weight: 600; transition: background 0.2s; }
+  .ipo-submit-btn:hover { background: #48355e; }
+  .ipo-thankyou { text-align: center; padding: 2rem; display: none; }
+  .ipo-thankyou h2 { color: #28a745; font-size: 1.8rem; }
+  .ipo-thankyou p { color: #555; margin-top: 0.75rem; }
+  @media (max-width: 600px) {
+    .ipo-survey-main { margin: 90px auto 40px; }
+    .ipo-survey-title { font-size: 1.3rem; }
+  }
+</style>
+
+<div class="ipo-survey-cls">
+  <main class="ipo-survey-main">
+    <div class="ipo-survey-box">
+      <div class="ipo-survey-header">
+        <h2 class="ipo-survey-title">IPO Preparation Test for NGO</h2>
+        <div class="ipo-survey-subtitle">DR Associates | Social Stock Exchange Readiness Assessment</div>
+      </div>
+      <div class="ipo-instructions">
+        <strong>Instructions:</strong> Choose the most appropriate answer for each question. All options are valid, but some are more recommended than others.
+      </div>
+
+      <form id="ipoTestForm">
+        <div class="ipo-q">
+          <strong>1. What is the primary goal of an NGO's IPO on BSE SSE platform?</strong>
+          <label><input type="radio" name="q1" value="a" required> To raise funds for operational expenses</label>
+          <label><input type="radio" name="q1" value="b"> To attract high-net-worth individuals</label>
+          <label><input type="radio" name="q1" value="c"> To increase visibility and credibility</label>
+          <label><input type="radio" name="q1" value="d"> To diversify funding sources</label>
+        </div>
+        <div class="ipo-q">
+          <strong>2. Which investor category is most likely to invest in an NGO's IPO?</strong>
+          <label><input type="radio" name="q2" value="a" required> Retail investors</label>
+          <label><input type="radio" name="q2" value="b"> High-net-worth individuals</label>
+          <label><input type="radio" name="q2" value="c"> Institutional investors</label>
+          <label><input type="radio" name="q2" value="d"> Impact investors</label>
+        </div>
+        <div class="ipo-q">
+          <strong>3. What is the most effective way to pitch an NGO's IPO to potential investors?</strong>
+          <label><input type="radio" name="q3" value="a" required> Highlighting financial returns</label>
+          <label><input type="radio" name="q3" value="b"> Emphasizing social impact</label>
+          <label><input type="radio" name="q3" value="c"> Showcasing governance structure</label>
+          <label><input type="radio" name="q3" value="d"> Focusing on market trends</label>
+        </div>
+        <div class="ipo-q">
+          <strong>4. How should an NGO approach potential investors initially?</strong>
+          <label><input type="radio" name="q4" value="a" required> Through a cold call</label>
+          <label><input type="radio" name="q4" value="b"> Via email with a detailed prospectus</label>
+          <label><input type="radio" name="q4" value="c"> At a networking event</label>
+          <label><input type="radio" name="q4" value="d"> Through a mutual acquaintance</label>
+        </div>
+        <div class="ipo-q">
+          <strong>5. What is the purpose of taking a soft commitment from potential investors?</strong>
+          <label><input type="radio" name="q5" value="a" required> To gauge interest</label>
+          <label><input type="radio" name="q5" value="b"> To secure funding</label>
+          <label><input type="radio" name="q5" value="c"> To finalize investment</label>
+          <label><input type="radio" name="q5" value="d"> To determine valuation</label>
+        </div>
+        <div class="ipo-q">
+          <strong>6. What is the next step after taking a soft commitment from an investor?</strong>
+          <label><input type="radio" name="q6" value="a" required> Finalizing the investment agreement</label>
+          <label><input type="radio" name="q6" value="b"> Conducting due diligence</label>
+          <label><input type="radio" name="q6" value="c"> Providing regular updates</label>
+          <label><input type="radio" name="q6" value="d"> Requesting a meeting with the investment team</label>
+        </div>
+        <div class="ipo-q">
+          <strong>7. How can interested investors invest in ZCZP instruments?</strong>
+          <label><input type="radio" name="q7" value="a" required> Through a demat account</label>
+          <label><input type="radio" name="q7" value="b"> Via a broker</label>
+          <label><input type="radio" name="q7" value="c"> Directly with the NGO</label>
+          <label><input type="radio" name="q7" value="d"> Through a mutual fund</label>
+        </div>
+        <div class="ipo-q">
+          <strong>8. What is the benefit of listing on BSE SSE platform for an NGO?</strong>
+          <label><input type="radio" name="q8" value="a" required> Increased visibility</label>
+          <label><input type="radio" name="q8" value="b"> Access to a wider investor base</label>
+          <label><input type="radio" name="q8" value="c"> Improved governance</label>
+          <label><input type="radio" name="q8" value="d"> All of the above</label>
+        </div>
+        <div class="ipo-q">
+          <strong>9. Which of the following is a key consideration for investors in an NGO's IPO?</strong>
+          <label><input type="radio" name="q9" value="a" required> Financial returns</label>
+          <label><input type="radio" name="q9" value="b"> Social impact</label>
+          <label><input type="radio" name="q9" value="c"> Governance structure</label>
+          <label><input type="radio" name="q9" value="d"> All of the above</label>
+        </div>
+        <div class="ipo-q">
+          <strong>10. How should an NGO prioritize its investor outreach efforts?</strong>
+          <label><input type="radio" name="q10" value="a" required> Focus on high-net-worth individuals</label>
+          <label><input type="radio" name="q10" value="b"> Target institutional investors</label>
+          <label><input type="radio" name="q10" value="c"> Engage with impact investors</label>
+          <label><input type="radio" name="q10" value="d"> Cast a wide net</label>
+        </div>
+        <div class="ipo-q">
+          <strong>11. What is the role of a lead manager in an IPO process?</strong>
+          <label><input type="radio" name="q11" value="a" required> To advise on valuation</label>
+          <label><input type="radio" name="q11" value="b"> To manage the IPO process</label>
+          <label><input type="radio" name="q11" value="c"> To provide marketing support</label>
+          <label><input type="radio" name="q11" value="d"> To secure funding</label>
+        </div>
+        <div class="ipo-q">
+          <strong>12. How can an NGO demonstrate its social impact to potential investors?</strong>
+          <label><input type="radio" name="q12" value="a" required> Through case studies</label>
+          <label><input type="radio" name="q12" value="b"> Via financial reports</label>
+          <label><input type="radio" name="q12" value="c"> By highlighting awards and recognition</label>
+          <label><input type="radio" name="q12" value="d"> Through social media engagement</label>
+        </div>
+        <div class="ipo-q">
+          <strong>13. What is the importance of transparency in an NGO's IPO process?</strong>
+          <label><input type="radio" name="q13" value="a" required> To build trust with investors</label>
+          <label><input type="radio" name="q13" value="b"> To comply with regulatory requirements</label>
+          <label><input type="radio" name="q13" value="c"> To demonstrate accountability</label>
+          <label><input type="radio" name="q13" value="d"> All of the above</label>
+        </div>
+        <div class="ipo-q">
+          <strong>14. How can an NGO measure the success of its IPO?</strong>
+          <label><input type="radio" name="q14" value="a" required> By the amount of funds raised</label>
+          <label><input type="radio" name="q14" value="b"> By the number of investors</label>
+          <label><input type="radio" name="q14" value="c"> By the impact on its social mission</label>
+          <label><input type="radio" name="q14" value="d"> By the post-IPO market performance</label>
+        </div>
+        <div class="ipo-q">
+          <strong>15. What is the key difference between a traditional IPO and a social impact IPO?</strong>
+          <label><input type="radio" name="q15" value="a" required> Financial returns</label>
+          <label><input type="radio" name="q15" value="b"> Social impact</label>
+          <label><input type="radio" name="q15" value="c"> Governance structure</label>
+          <label><input type="radio" name="q15" value="d"> Investor base</label>
+        </div>
+
+        <button type="submit" class="ipo-submit-btn">Submit Test</button>
+      </form>
+
+      <div class="ipo-thankyou" id="ipoThankYou">
+        <h2>Thank you!</h2>
+        <p>Your IPO Preparation Test has been submitted successfully.<br/><br/>
+        Our team at DR Associates will review your responses and provide personalised guidance on your NGO's SSE readiness.<br/><br/>
+        📧 info.drassociates2024@gmail.com | 🌐 www.drassociates.org.in</p>
+        <a href="/ngo" style="display:inline-block;margin-top:1.2rem;background:#70507d;color:#fff;padding:0.6rem 1.5rem;border-radius:6px;text-decoration:none;font-weight:600;">Back to NGO Services</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    var form = document.getElementById("ipoTestForm");
+    var thankYou = document.getElementById("ipoThankYou");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.style.display = "none";
+        thankYou.style.display = "block";
+      });
+    }
+  });
+</script>

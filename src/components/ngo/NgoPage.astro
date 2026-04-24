@@ -1,0 +1,273 @@
+<style>
+  .ngo-eyebrow { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:#b07fc4; margin-bottom:.75rem; display:block; }
+  .ngo-hero { position:relative; overflow:hidden; background:#1a1333; color:#fff; padding:160px 0 80px; }
+  .ngo-hero-bg { position:absolute; inset:0; opacity:1; }
+  .ngo-hero-bg img { width:100%; height:100%; object-fit:cover; }
+  .ngo-hero-bg::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(10,5,25,0.78) 50%,rgba(26,19,51,0.5)); }
+  .ngo-hero-inner { position:relative; max-width:1100px; margin:0 auto; padding:0 24px; }
+  .ngo-hero h1 { font-size:clamp(2rem,4vw,3.2rem); line-height:1.1; font-weight:800; max-width:800px; margin:0 0 1.2rem; color:#ffffff !important; text-shadow:0 2px 16px rgba(0,0,0,0.5); }
+  .ngo-hero h1 em { color:#d9a8f0 !important; font-style:italic; }
+  .ngo-hero p { font-size:1.05rem; color:rgba(255,255,255,.95) !important; max-width:560px; margin-bottom:.75rem; text-shadow:0 1px 8px rgba(0,0,0,0.4); }
+  .ngo-hero-btns { display:flex; flex-wrap:wrap; gap:14px; margin-top:1.8rem; }
+  .ngo-btn-primary { position:relative; overflow:hidden; background:#70507d; color:#fff; padding:.75rem 1.8rem; border-radius:6px; font-weight:700; font-size:.95rem; text-decoration:none; display:inline-block; z-index:1; transition:color .3s; }
+  .ngo-btn-primary::before { content:''; position:absolute; inset:0; background:#48355e; transform:translateY(100%); transition:transform .3s ease; z-index:-1; border-radius:6px; }
+  .ngo-btn-primary:hover::before { transform:translateY(0); }
+  .ngo-btn-primary:hover { color:#fff; }
+  .ngo-btn-outline { position:relative; overflow:hidden; border:2px solid rgba(255,255,255,.5); color:#fff; padding:.75rem 1.8rem; border-radius:6px; font-weight:700; font-size:.95rem; text-decoration:none; display:inline-block; z-index:1; transition:color .3s, border-color .3s; }
+  .ngo-btn-outline::before { content:''; position:absolute; inset:0; background:rgba(255,255,255,.12); transform:translateY(100%); transition:transform .3s ease; z-index:-1; border-radius:4px; }
+  .ngo-btn-outline:hover::before { transform:translateY(0); }
+  .ngo-btn-outline:hover { color:#fff; border-color:rgba(255,255,255,.8); }
+  .ngo-trust { background:#f4f0f8; border-bottom:1px solid #e0d9ea; padding:48px 0; }
+  .ngo-trust-inner { max-width:1100px; margin:0 auto; padding:0 24px; }
+  .ngo-trust-label { text-align:center; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:#999; margin-bottom:2rem; }
+  .ngo-trust-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; }
+  @media(min-width:768px){ .ngo-trust-grid{ grid-template-columns:repeat(4,1fr); } }
+  .ngo-trust-item { text-align:center; }
+  .ngo-trust-num { font-size:2.2rem; font-weight:800; color:#48355e; }
+  .ngo-trust-desc { font-size:.85rem; color:#666; margin-top:.3rem; }
+  .ngo-section { max-width:1100px; margin:0 auto; padding:72px 24px; }
+  .ngo-section h2 { font-size:clamp(1.6rem,3vw,2.4rem); font-weight:800; color:#222; margin:0 0 1rem; }
+  .ngo-two-col { display:grid; gap:2.5rem; }
+  @media(min-width:768px){ .ngo-two-col{ grid-template-columns:5fr 7fr; align-items:start; } }
+  .ngo-problems { list-style:none; padding:0; margin:1.2rem 0 0; }
+  .ngo-problems li { border-left:3px solid #70507d; padding:.5rem .75rem .5rem 1rem; margin-bottom:.75rem; color:#333; font-size:.95rem; }
+  .ngo-info-box { background:#fff; border:1px solid #e0d9ea; border-radius:10px; padding:1.5rem; margin-top:1.5rem; }
+  .ngo-info-box p { color:#555; font-size:.95rem; margin-bottom:.75rem; }
+  .ngo-info-box a { font-weight:700; color:#48355e; }
+  .ngo-dark { background:#1a1333; color:#fff; padding:72px 0; }
+  .ngo-dark-inner { max-width:1100px; margin:0 auto; padding:0 24px; }
+  .ngo-dark h2 { font-size:clamp(1.6rem,3vw,2.4rem); font-weight:800; color:#fff; margin:0 0 1rem; max-width:700px; }
+  .ngo-dark p { color:rgba(255,255,255,.75); max-width:680px; margin-bottom:2rem; }
+  .ngo-reasons-grid { display:grid; gap:1px; background:rgba(255,255,255,.08); border-radius:12px; overflow:hidden; }
+  @media(min-width:640px){ .ngo-reasons-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(min-width:960px){ .ngo-reasons-grid{ grid-template-columns:repeat(3,1fr); } }
+  .ngo-reason { background:#1a1333; padding:1.75rem; }
+  .ngo-reason-num { font-size:1.6rem; font-weight:800; color:#b07fc4; margin-bottom:.75rem; }
+  .ngo-reason h3 { font-size:1.05rem; font-weight:700; color:#fff; margin-bottom:.5rem; }
+  .ngo-reason p { font-size:.88rem; color:rgba(255,255,255,.65); line-height:1.6; }
+  .ngo-accent-card { background:#70507d; padding:1.75rem; border-radius:0; }
+  .ngo-accent-card p { color:#fff; font-size:1rem; font-weight:600; }
+  .ngo-accent-card a { color:#f0e6f7; font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; text-decoration:underline; margin-top:1rem; display:inline-block; }
+  .ngo-services-grid { display:grid; gap:2px; background:#e0d9ea; border-radius:10px; overflow:hidden; }
+  .ngo-service-item { background:#fff; padding:1.4rem 1.6rem; }
+  .ngo-service-num { font-size:.82rem; font-weight:700; color:#70507d; margin-bottom:.4rem; }
+  .ngo-service-item h3 { font-size:1.05rem; font-weight:700; color:#222; margin-bottom:.4rem; }
+  .ngo-service-item p { font-size:.88rem; color:#666; line-height:1.6; }
+  .ngo-light-bg { background:#f4f0f8; padding:72px 0; }
+  .ngo-phases-grid { display:grid; gap:1.2rem; margin-top:2.5rem; }
+  @media(min-width:640px){ .ngo-phases-grid{ grid-template-columns:repeat(2,1fr); } }
+  .ngo-phase { background:#fff; border:1px solid #e0d9ea; border-radius:12px; padding:1.75rem; transition:border-color .2s; }
+  .ngo-phase:hover { border-color:#70507d; }
+  .ngo-phase-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; }
+  .ngo-phase-num { font-size:2.5rem; font-weight:800; color:#e0d9ea; }
+  .ngo-phase-week { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#999; border:1px solid #e0d9ea; border-radius:20px; padding:.25rem .75rem; }
+  .ngo-phase h3 { font-size:1.15rem; font-weight:700; color:#222; margin-bottom:.5rem; }
+  .ngo-phase p { font-size:.88rem; color:#666; line-height:1.6; }
+  .ngo-phase-deliv { border-top:1px solid #e0d9ea; margin-top:1rem; padding-top:.75rem; font-size:.82rem; color:#48355e; }
+  .ngo-phase-deliv strong { display:block; text-transform:uppercase; letter-spacing:.1em; font-size:.7rem; color:#70507d; margin-bottom:.3rem; }
+  .ngo-checks { display:grid; gap:.75rem; margin-top:2rem; }
+  @media(min-width:640px){ .ngo-checks{ grid-template-columns:repeat(2,1fr); } }
+  .ngo-check { display:flex; gap:.75rem; background:#fff; border:1px solid #e0d9ea; border-radius:8px; padding:1rem 1.1rem; }
+  .ngo-check-icon { width:24px; height:24px; background:#70507d; border-radius:50%; color:#fff; font-size:.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+  .ngo-check p { font-size:.9rem; color:#333; margin:0; }
+  .ngo-cta-box { background:#1a1333; border-radius:12px; padding:2rem; color:#fff; margin-top:2rem; }
+  .ngo-cta-box p { color:rgba(255,255,255,.8); margin-bottom:1.2rem; }
+  .ngo-faq { max-width:760px; margin:0 auto; padding:72px 24px; }
+  .ngo-faq h2 { font-size:clamp(1.6rem,3vw,2.4rem); font-weight:800; color:#222; margin-bottom:2rem; }
+  .ngo-faq details { border-top:1px solid #e0d9ea; padding:1.2rem 0; }
+  .ngo-faq details:last-child { border-bottom:1px solid #e0d9ea; }
+  .ngo-faq summary { display:flex; justify-content:space-between; align-items:start; gap:1rem; cursor:pointer; list-style:none; }
+  .ngo-faq summary h3 { font-size:1rem; font-weight:700; color:#222; margin:0; flex:1; }
+  .ngo-faq-icon { font-size:1.5rem; font-weight:300; color:#70507d; flex-shrink:0; transition:transform .2s; }
+  .ngo-faq details[open] .ngo-faq-icon { transform:rotate(45deg); }
+  .ngo-faq details p { margin-top:.75rem; font-size:.92rem; color:#555; line-height:1.7; padding-right:2rem; }
+  .ngo-final { background:#1a1333; color:#fff; padding:72px 0; text-align:center; }
+  .ngo-final-inner { max-width:1000px; margin:0 auto; padding:0 24px; }
+  .ngo-final h2 { font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:800; color:#fff; margin-bottom:1rem; }
+  .ngo-final p { color:rgba(255,255,255,.75); max-width:600px; margin:0 auto 2.5rem; }
+  .ngo-final-cards { display:grid; gap:1.2rem; text-align:left; }
+  @media(min-width:640px){ .ngo-final-cards{ grid-template-columns:repeat(2,1fr); } }
+  .ngo-final-card { border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:1.75rem; background:rgba(255,255,255,.04); }
+  .ngo-final-card-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.15em; color:#b07fc4; margin-bottom:.75rem; }
+  .ngo-final-card h3 { font-size:1.2rem; font-weight:700; color:#fff; margin-bottom:.6rem; }
+  .ngo-final-card p { font-size:.88rem; color:rgba(255,255,255,.65); margin-bottom:1.2rem; }
+</style>
+
+<!-- HERO -->
+<section class="ngo-hero">
+  <div class="ngo-hero-bg">
+    <img src="/assets/img/ngo-hero.jpg" alt="NGO fundraising through Social Stock Exchange India" />
+  </div>
+  <div class="ngo-hero-inner">
+    <span class="ngo-eyebrow">Services for NGOs</span>
+    <h1>Your NGO deserves more than grants. <em>Raise institutional capital</em> through India's Social Stock Exchange.</h1>
+    <p>Most NGOs spend years chasing uncertain grants. DR Associates is India's first execution-focused Social Stock Exchange consultancy — helping organisations raise SEBI-regulated capital through ZCZP instruments on NSE and BSE.</p>
+    <div class="ngo-hero-btns">
+      <a href="/contact-us" class="ngo-btn-primary">Book your free SSE consultation →</a>
+      <a href="/ipo-readiness-test" class="ngo-btn-outline">Start the IPO Preparation Test</a>
+    </div>
+    <p style="margin-top:.75rem;font-size:.82rem;opacity:.55;">No cost. No obligation. Just clarity on where your NGO stands.</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="ngo-trust">
+  <div class="ngo-trust-inner">
+    <p class="ngo-trust-label">Trusted by NGOs across India on the Social Stock Exchange</p>
+    <div class="ngo-trust-grid">
+      <div class="ngo-trust-item"><div class="ngo-trust-num">09</div><p class="ngo-trust-desc">NGOs with SEBI In-Principle Approval</p></div>
+      <div class="ngo-trust-item"><div class="ngo-trust-num">₹62.25 Cr+</div><p class="ngo-trust-desc">Total SSE IPO pipeline structured</p></div>
+      <div class="ngo-trust-item"><div class="ngo-trust-num">NSE + BSE</div><p class="ngo-trust-desc">Dual-platform SSE capability</p></div>
+      <div class="ngo-trust-item"><div class="ngo-trust-num">4-Phase</div><p class="ngo-trust-desc">Proven SSE execution process</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<div class="ngo-section">
+  <div class="ngo-two-col">
+    <div>
+      <span class="ngo-eyebrow">The challenge NGOs face</span>
+      <h2>Why good NGOs still struggle to scale their fundraising</h2>
+    </div>
+    <div>
+      <p style="color:#555;font-size:1rem;">Thousands of credible, impact-driven NGOs across India face the same wall year after year.</p>
+      <ul class="ngo-problems">
+        <li>Grant cycles are unpredictable and rarely match programme timelines</li>
+        <li>Donor fatigue limits the depth and consistency of individual giving</li>
+        <li>Institutional and corporate CSR funds are competitive and often restricted</li>
+        <li>NGOs with strong outcomes still lack the governance language investors expect</li>
+        <li>Most social sector organisations have no clear path to non-repayable institutional capital</li>
+      </ul>
+      <div class="ngo-info-box">
+        <p>The Social Stock Exchange exists precisely to close this gap. Under SEBI's framework, NGOs raise funds through ZCZP instruments on NSE and BSE — accessing impact investors with structure and transparency.</p>
+        <p>But SSE readiness is not automatic. Governance, documentation, impact reporting and investor strategy all determine success.</p>
+        <a href="/sse">Learn what the Social Stock Exchange is →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="ngo-dark">
+  <div class="ngo-dark-inner">
+    <span class="ngo-eyebrow" style="color:#b07fc4;">Why DR Associates</span>
+    <h2>India's first execution-focused Social Stock Exchange partner for NGOs</h2>
+    <p>Built to deliver outcomes, not just advice. We specialise exclusively in SSE — every framework comes from deep, focused execution experience.</p>
+    <div class="ngo-reasons-grid">
+      <div class="ngo-reason"><div class="ngo-reason-num">01</div><h3>SSE-Only Specialisation</h3><p>Every piece of guidance is precise, tested, and current with SEBI regulations.</p></div>
+      <div class="ngo-reason"><div class="ngo-reason-num">02</div><h3>Execution, Not Just Advisory</h3><p>We prepare, structure, and deliver — your partner from readiness through post-listing.</p></div>
+      <div class="ngo-reason"><div class="ngo-reason-num">03</div><h3>Proven Pipeline Credibility</h3><p>9 NGOs with in-principle approval, ₹62 crore+ in active SSE IPO pipeline.</p></div>
+      <div class="ngo-reason"><div class="ngo-reason-num">04</div><h3>ZCZP Fundraising Experience</h3><p>Cases built across livelihoods, education, healthcare and environment.</p></div>
+      <div class="ngo-reason"><div class="ngo-reason-num">05</div><h3>Investor Alignment Strategy</h3><p>We position your NGO for real participation from impact investors in India.</p></div>
+      <div class="ngo-accent-card"><p>Every recommendation built on real SSE execution from live NGO fundraising cases.</p><a href="https://www.sebi.gov.in" target="_blank" rel="noopener">SEBI SSE Guidelines ↗</a></div>
+    </div>
+    <a href="/about" style="margin-top:1.5rem;display:inline-block;color:rgba(255,255,255,.6);font-size:.9rem;">About DR Associates →</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div class="ngo-section">
+  <span class="ngo-eyebrow">What we do</span>
+  <h2>What DR Associates helps NGOs achieve on the SSE</h2>
+  <p style="color:#666;margin-bottom:2rem;max-width:600px;">Our NGO services span the entire SSE journey — from initial assessment through to post-listing support.</p>
+  <div class="ngo-services-grid">
+    <div class="ngo-service-item"><div class="ngo-service-num">01</div><h3>SSE Listing Readiness Assessment</h3><p>Evaluate governance, compliance, documentation and impact measurement — identifying gaps before SEBI's approval process.</p></div>
+    <div class="ngo-service-item"><div class="ngo-service-num">02</div><h3>Governance Strengthening</h3><p>Board credibility, internal controls and financial transparency — the structures that attract impact investors.</p></div>
+    <div class="ngo-service-item"><div class="ngo-service-num">03</div><h3>Documentation Structuring</h3><p>Legal records, audited financials and impact evidence organised to SSE due-diligence standards.</p></div>
+    <div class="ngo-service-item"><div class="ngo-service-num">04</div><h3>ZCZP Fundraising Preparation</h3><p>Complete fundraising case development — utilisation plans, impact outcomes and investor disclosures.</p></div>
+    <div class="ngo-service-item"><div class="ngo-service-num">05</div><h3>Impact Reporting Frameworks</h3><p>Programme outcomes translated into measurable, investor-relevant impact metrics.</p></div>
+    <div class="ngo-service-item"><div class="ngo-service-num">06</div><h3>Investor Outreach Readiness</h3><p>A clear investor narrative and structured communication strategy to maximise ZCZP participation.</p></div>
+    <div class="ngo-service-item"><div class="ngo-service-num">07</div><h3>Post-Listing Compliance &amp; Support</h3><p>SEBI reporting obligations, impact disclosures and sustained fundraising strategy after listing.</p></div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="ngo-light-bg">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+    <span class="ngo-eyebrow">How we work</span>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#222;max-width:600px;">Our 4-phase SSE execution process for NGOs</h2>
+    <p style="color:#666;max-width:560px;">A structured, time-bound path. Every phase has clear deliverables — your organisation always knows exactly where it stands.</p>
+    <div class="ngo-phases-grid">
+      <div class="ngo-phase">
+        <div class="ngo-phase-header"><span class="ngo-phase-num">01</span><span class="ngo-phase-week">Weeks 1–2</span></div>
+        <h3>SSE Readiness Diagnostic</h3>
+        <p>Comprehensive review of governance, documentation health, financial records and impact measurement. Defines exact readiness and gaps.</p>
+        <div class="ngo-phase-deliv"><strong>Deliverable</strong>✓ Written SSE Readiness Report with prioritised action plan</div>
+      </div>
+      <div class="ngo-phase">
+        <div class="ngo-phase-header"><span class="ngo-phase-num">02</span><span class="ngo-phase-week">Weeks 3–6</span></div>
+        <h3>Foundation Strengthening</h3>
+        <p>Close identified gaps in governance, documentation and reporting. Board processes strengthened, impact narrative developed to investor-grade standards.</p>
+        <div class="ngo-phase-deliv"><strong>Deliverable</strong>✓ Governance framework upgrade and documentation package</div>
+      </div>
+      <div class="ngo-phase">
+        <div class="ngo-phase-header"><span class="ngo-phase-num">03</span><span class="ngo-phase-week">Weeks 4–8</span></div>
+        <h3>ZCZP Fundraising Preparation</h3>
+        <p>Build complete ZCZP fundraising case — utilisation strategy, impact projections, investor materials and SSE IPO positioning.</p>
+        <div class="ngo-phase-deliv"><strong>Deliverable</strong>✓ ZCZP proposal, investor deck and SSE IPO documentation</div>
+      </div>
+      <div class="ngo-phase">
+        <div class="ngo-phase-header"><span class="ngo-phase-num">04</span><span class="ngo-phase-week">Post-Listing</span></div>
+        <h3>Ongoing SSE Journey Support</h3>
+        <p>Partnership continues after listing — compliance reporting, impact disclosures, investor engagement and fundraising readiness.</p>
+        <div class="ngo-phase-deliv"><strong>Deliverable</strong>✓ Ongoing compliance calendar, reporting and investor communication</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<div class="ngo-section">
+  <span class="ngo-eyebrow">Is this right for you?</span>
+  <h2 style="max-width:600px;">Which NGOs are ready for Social Stock Exchange fundraising?</h2>
+  <p style="color:#666;max-width:640px;">SSE fundraising is for organisations ready to operate at a higher level of governance, accountability and structured impact delivery.</p>
+  <div class="ngo-checks">
+    <div class="ngo-check"><span class="ngo-check-icon">✓</span><p>Planning to raise ₹50 Lakhs to ₹20 Crore+ through SEBI-regulated ZCZP instruments</p></div>
+    <div class="ngo-check"><span class="ngo-check-icon">✓</span><p>Operates structured programmes with measurable, reportable social outcomes</p></div>
+    <div class="ngo-check"><span class="ngo-check-icon">✓</span><p>Ready to strengthen governance, financial transparency and compliance processes</p></div>
+    <div class="ngo-check"><span class="ngo-check-icon">✓</span><p>Wants to access impact investors and CSR capital via the SSE</p></div>
+    <div class="ngo-check"><span class="ngo-check-icon">✓</span><p>Committed to long-term, scalable fundraising beyond one-off grants</p></div>
+  </div>
+  <div class="ngo-cta-box">
+    <p>If your NGO is at an earlier stage, begin with our free IPO Preparation Test to understand what preparation is needed.</p>
+    <a href="/ipo-readiness-test" class="ngo-btn-primary">Start the IPO Preparation Test →</a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div style="background:#f4f0f8;padding:72px 0;">
+  <div class="ngo-faq">
+    <span class="ngo-eyebrow">Common questions</span>
+    <h2>Frequently asked questions</h2>
+    <details><summary><h3>What is the Social Stock Exchange for NGOs?</h3><span class="ngo-faq-icon">+</span></summary><p>The SSE is a SEBI-regulated marketplace where registered non-profit organisations raise funds through Zero Coupon Zero Principal (ZCZP) instruments — non-repayable, grant-like securities with structured impact reporting obligations.</p></details>
+    <details><summary><h3>What is a ZCZP instrument and how does it work?</h3><span class="ngo-faq-icon">+</span></summary><p>A ZCZP instrument is a SEBI-regulated security through which NGOs raise funds without any obligation to repay principal or interest. The NGO commits to structured impact measurement and reporting submitted to SEBI.</p></details>
+    <details><summary><h3>How long does the SSE readiness process take?</h3><span class="ngo-faq-icon">+</span></summary><p>Typically 6 to 12 weeks, depending on your NGO's current governance, documentation and compliance maturity. Our Phase 1 Diagnostic gives a clear, personalised timeline within the first two weeks.</p></details>
+    <details><summary><h3>Can smaller NGOs participate in the Social Stock Exchange?</h3><span class="ngo-faq-icon">+</span></summary><p>Yes — provided the NGO meets SEBI eligibility criteria and can demonstrate measurable social impact. We have supported NGOs with fundraising targets starting from ₹50 lakhs.</p></details>
+    <details><summary><h3>Does listing on the SSE guarantee fundraising success?</h3><span class="ngo-faq-icon">+</span></summary><p>No. SSE listing creates access, not guaranteed outcomes. Success depends on governance credibility, the strength of your ZCZP case and how well your NGO is positioned for impact investing engagement.</p></details>
+    <details><summary><h3>Is DR Associates SEBI-registered or affiliated?</h3><span class="ngo-faq-icon">+</span></summary><p>DR Associates operates as a specialised SSE consultancy working within SEBI's regulatory framework. For official guidelines, refer to sebi.gov.in.</p></details>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<section class="ngo-final">
+  <div class="ngo-final-inner">
+    <span class="ngo-eyebrow" style="color:#b07fc4;display:block;margin-bottom:.75rem;">Ready to begin?</span>
+    <h2>Take the first step toward Social Stock Exchange fundraising</h2>
+    <p>India's Social Stock Exchange is active. Impact investors are looking for governance-strong, mission-driven NGOs ready to put capital to purposeful, accountable work.</p>
+    <div class="ngo-final-cards">
+      <div class="ngo-final-card">
+        <div class="ngo-final-card-label">Option A — Direct</div>
+        <h3>Book a free consultation</h3>
+        <p>Speak directly with our SSE team. Understand your NGO's readiness, fundraising potential and exact next steps. No obligation.</p>
+        <a href="/contact-us" class="ngo-btn-primary">Book consultation →</a>
+      </div>
+      <div class="ngo-final-card">
+        <div class="ngo-final-card-label">Option B — Self-assess</div>
+        <h3>Take the IPO Preparation Test</h3>
+        <p>Assess your NGO's understanding of SSE fundraising, ZCZP instruments, and investor strategy in 5 minutes.</p>
+        <a href="/ipo-readiness-test" class="ngo-btn-outline">Start the test →</a>
+      </div>
+    </div>
+  </div>
+</section>
